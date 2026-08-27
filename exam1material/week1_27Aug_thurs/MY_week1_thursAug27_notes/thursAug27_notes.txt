@@ -43,9 +43,15 @@ else {
 
 
 
---> is it possible for "statements2" to execute?7
+--> is it possible for "statements2" to execute?
+first if condition has to be false
+(first) else if has to be true 
+so, x<3 and y>4 is false
+x>=3 AND y<=4 
 
+so x has to be 4 and y has to be 7, but it also has to be <=4 so it doesn't work out and is impossible. 
 
+no, if y == 7 then the first statement will be triggered since it is an or function so the second would be skipped. 
 
 
 ////////////////////////////////////////////////////////
@@ -62,14 +68,21 @@ Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
 
-What does "neither" mean?
+What does "neither" mean? both false
+ 
 
+Rewrite Bob: Ava is not a knave and I am not a knave 
 
-Rewrite Bob:
-
+    Ava says Bob is a knave
+    Bob: Ava is a knight and I am a knight
 
 What are Ava and Bob? 
+    Ava: knight, Bob: knave
 
+Suppose Ava is a knight. Then from her statement Bob would have to be a knave. 
+Then Bob's statement is correctly false they are not both knights. 
+Suppose Ava is a knave, so Bob is a knight. But then Bob's statemnt 
+would be a lie because they are not both knights, which doesn't work. 
 
 ////////////////////////////////////////////////////////
 
@@ -80,12 +93,21 @@ Bill claims that it's false that Mae is a knave.
 Mae tells you, "Bill would tell you that I am a knave."
 
 What types are Sarah, Bill, and Mae?
-
+    Sarah: knave , Bill: knave , Mae: knave
 
 (How might we simplify everything?)
+    Sarah: Bill is a knight 
+    Bill: Mae is a knight
+    Mae tells you, "Bill would tell you that I am a knave."
 
+Suppose Sarah is a knight. From her statement Bill is a
+    knight and from his Mae must be a knight. But from Mae's 
+    statement she is a knave so this is false.
 
-    
+Suppose Sarah is a knave. Bill is a knave and Mae is a knave 
+    looking at Mae's statement Bill would lie and say that she
+    is a knight. But Mae would like about what Bill would say so 
+    this does workout. 
 
 
 ////////////////////////////////////
@@ -100,9 +122,19 @@ On Sunday, everyone tells the truth.
 Lion says: "Yesterday was one of my lying days."
 Unicorn says: "Yesterday was one of my lying days, too."
 
-What day is it?
+What day is it? only 7 possible 
+    Thursday
+    Today Unicorn is lying, but Lion is telling the truth because yesterday was 
+consider Sunday - both telling the truth, not possible, both didnt lie on saturday
+    Tuesday, lion should lie and unicorn should tell the truth but lion is 
+        telling the truth yesterday was one of his days. 
+    Fridays/Wednesdays/Saturdays don't work for the same reason
+    Monday - Lion lies unicorn tells the truth but 
+        yesterday was truth day for both of them so it doesnt work
+    Thursday - unicorn lies and lion tells the truth
+        works out - unicorn lies wednesday was a lying day but lion is telling the truth
 
-
+Day: Thursday
 
 ////////////////////////////////
 
@@ -120,12 +152,9 @@ The first one says: "I'm Tweedledum."
 The second one says: "I'm Tweedledee."
 
 Which is which? What day is it?
-
-
-
-
-
-
+    everyday but Sunday - one lies and one tells the truth,
+        so they give the same name
+    So today is Sunday and they are who they say
 
 
 //////////////////////////////////
@@ -152,8 +181,17 @@ The second one says: "I'm Tweedledee!"
 
 Who gets the rattle?
 
-Who is who?
+Suppose the first twin is telling the truth.
+    Tweedledee owns the rattle. The second one 
+    must be lying and be Tweedledum. So the first 
+    twin is Tweedledee. we give the rattle to first twin. 
 
+Suppose the first twin is lying. Tweedledum owns the rattle. 
+    So the second twin is Tweedledee and the first twin is tweedledum
+    So the first twin gets the rattle
+
+Who is who?
+    We don't know but the first twin always get the rattle
 
 ///////////////////////////////////////////
 
@@ -165,16 +203,22 @@ Exactly one of the caskets contains a portrait.
 Each casket has a message on it, and you know that at most
     one of the messages is true.
 
+(could be 1 message true or 0 true)
+
 Gold casket: "The portrait is in this casket."
 Silver casket: "The portrait is not in this casket."
 Lead casket: "The portrait is not in the gold casket."
 
-Where is the portrait?
+Where is the portrait? (only three possibities)
 
+Suppose it is in the gold. the silver and gold messages are true(not possible more than one true)
 
+suppose it is the silver casket.
+    gold: f, silver: f, (works - at most 1 true)
+suppose lead casket
+    gold: f, silver: t, lead: t (too many t doiesnt work)
 
-
-
+Its in the silver casket
 
 ///////////////////////////////////
 
@@ -208,9 +252,13 @@ Albert says: "Then I also know when Cheryl's birthday is."
 
 
 When is it?
+if Albert knows its may he would not be certain bernard wouldnt know due to the unique day.
+    Same with June. 
+Bernard knows its not may or June, cannot be 14 bc he wouldn't know for sure. 
 
+It can't be august because albert would not know at this point. 
 
-
+so her birthday is july 16th 
 
 ///////////////////////////////////
 
