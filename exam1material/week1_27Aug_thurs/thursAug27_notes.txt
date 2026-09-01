@@ -1,5 +1,8 @@
 HW 0 - due today (what to submit?)
 
+-> no "Applications" folder?
+-> other problems with the installation script?
+
 
 
 HW 1 - due Tuesday, September 1
@@ -12,7 +15,7 @@ HW 1 - due Tuesday, September 1
 
 - where to find examples from class
 
-- how to clone lecture notes repo
+- how to take notes
 
 - weekly review quizzes
 
@@ -41,18 +44,27 @@ else {
     statements3;
 }
 
+--> is it possible for "statements2" to execute?
+first if condition has to be false
+    x < 3 || y > 4 is false
+    x < 3 is false AND y > 4 is false
+    x >= 3 AND y <= 4
 
+the (first) else if condition has to be true
+    x < 5 && y == 7 is true
+    x < 5, also y == 7
 
---> is it possible for "statements2" to execute?7
+putting them together: x would have to be 4
+    y would have to be both <= 4 AND == 7, not possible
 
-
+since y's values aren't possible, statements2 can never execute 
 
 
 ////////////////////////////////////////////////////////
 
 More with knights and knaves.
 
-knights: each full statement that they make is true
+knights: each full statement that they make must be true
 knave: each full statement must be false
 
 
@@ -62,13 +74,25 @@ Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
 
-What does "neither" mean?
+What does "neither" mean? both false
+
+Rewrite Bob: Ava is not a knave and I am not a knave
 
 
-Rewrite Bob:
+    Ava says that Bob is a knave.
+    Bob: Ava is a knight and I am a knight
 
 
 What are Ava and Bob? 
+    Ava: knight, Bob: knave
+
+Suppose Ava is a knight. Then from her statement, Bob would have
+    to be a knave. Then Bob's statement is correctly false -- they
+    are not both knights. 
+
+Suppose instead that Ava is a knave. From her statement, Bob
+    would have to be a knight. Bob's statement would be a lie
+    because they are not both knights, which doesn't work.
 
 
 ////////////////////////////////////////////////////////
@@ -83,9 +107,18 @@ What types are Sarah, Bill, and Mae?
 
 
 (How might we simplify everything?)
+    Sarah: Bill is a knight 
+    Bill: Mae is a knight 
+    Mae: Bill would tell you that I am a knave.
 
+Suppose Sarah is a knight. From her statement, Bill must be a knight,
+    and from his statement, Mae must be a knight. Mae's statement
+    doesn't work -- Bill (a knight) would not say Mae is a knight.
 
-    
+Suppose instead Sarah is a knave. From her statement and then Bill's 
+    statement, Bill and Mae would both be knaves. Looking at Mae's 
+    statement, Bill would lie and say she is a knight. But Mae would 
+    lie about what Bill say, and would say Bill would say knave. 
 
 
 ////////////////////////////////////
@@ -100,9 +133,20 @@ On Sunday, everyone tells the truth.
 Lion says: "Yesterday was one of my lying days."
 Unicorn says: "Yesterday was one of my lying days, too."
 
-What day is it?
+What day is it? only 7 possible days 
+    Sunday? no. They didn't both lie on Saturday, and on Sunday
+        they should both tell the truth.
+    Tuesday? Lion should lie, Unicorn should tell truth. 
+        Yesterday WAS one of Lion's lying days, and Lion SHOULD lie
+        about that. Doesn't work. 
+    Fridays/Wednesdays/Saturdays? Similar to Tuesday
+    Monday? Lion should lie, Unicorn should tell truth. Doesn't 
+        work for Unicorn - Unicorn told truth on Sunday.
+    Thursday? Unicorn lies, Lion tells truth. Works out -
+        Unicorn lies that Wed was a lying day, Lion tells truth 
+        that Wed was a lying day.
 
-
+Day: Thursday
 
 ////////////////////////////////
 
@@ -115,22 +159,21 @@ and that the other lies Thurs/Fri/Sat.
 
 You don't know which is which.
 
+
+
 You see both of them together.
 The first one says: "I'm Tweedledum." 
 The second one says: "I'm Tweedledee."
 
+
 Which is which? What day is it?
+    Can't be a day when one lies and one tells truth -- they
+    would both give the same name. 
+
+Must be Sunday. They are who they say. 
 
 
 
-
-
-
-
-
-//////////////////////////////////
-
-In-class quiz
 
 
 
@@ -150,12 +193,29 @@ You don't know what day it is, but are sure that it isn’t
 The first one says: "Tweedledee owns the rattle."
 The second one says: "I'm Tweedledee!"
 
-Who gets the rattle?
+Who gets the rattle? the first twin
 
-Who is who?
+Suppose the first twin is telling truth. Then Tweedledee owns the
+    rattle. The second twin must be lying, and so the second twin is
+    Tweedledum. This makes the first twin Tweedledee. We give
+    rattle to first twin.
+
+Suppose instead first twin is lying. Then Tweedledum owns rattle.
+    SEcond twin must be telling truth, and so second twin is Tweedledee
+    and the first twin is Tweedledum. We give rattle to first twin. 
+
+Who is who? not enough information
 
 
 ///////////////////////////////////////////
+
+In-class quiz
+
+
+
+
+
+//////////////////////////////////
 
 Based on Shakespeare's "Merchant of Venice".
 
@@ -165,15 +225,26 @@ Exactly one of the caskets contains a portrait.
 Each casket has a message on it, and you know that at most
     one of the messages is true.
 
+(could be one message true, could be 0 messages true)
+
 Gold casket: "The portrait is in this casket."
 Silver casket: "The portrait is not in this casket."
 Lead casket: "The portrait is not in the gold casket."
 
-Where is the portrait?
+Where is the portrait? (only three possibilities)
+
+Suppose it is in the gold casket. 
+    gold: T, silver: T (not possible - more than 1 is true)
+
+Suppose it is in the silver casket.
+    gold: F, silver: F, (works - at most 1 would be true)
+
+Suppose it is in the lead casket.
+    gold: F, silver: T, lead: T (not possible - more than 1 is true)
 
 
 
-
+Answer: silver
 
 
 ///////////////////////////////////
@@ -197,20 +268,35 @@ Cheryl privately tells Bernard her birthday day (number).
     (14-19)
 
 
+
+
 Albert says: "I don't know when Cheryl's birthday is,
     but I know Bernard doesn't know too."
+
+must be a month with no unique days (can't be May or June)
+
 
 Bernard says: "At first I didn't know when Cheryl's
     birthday is, but now I do."
 
+(now Bernard also knows it's not May or June)   
+can't be a non-repeating day or Bernard wouldn't be sure
+can't be July 14 or Aug 14
+
 
 Albert says: "Then I also know when Cheryl's birthday is."
+can't be August - there are still two days remaining
+must be July 16
 
 
-When is it?
+When is it? July 16
 
 
 
+
+///////////////////////////////////
+
+<-- stopped here, will continue on Tuesday
 
 ///////////////////////////////////
 
@@ -278,13 +364,14 @@ IMPLIES operator →
 
 "If I have a test, then I will study"
 
-p: I have a test
-q: I will study
+    p: I have a test
+    q: I will study
 
-p → q
+    p → q
+
 
 It is false if we have BROKEN A PROMISE.
-Otherwise we have not.
+Otherwise it is true.
 
 p q  #  p → q
 --------------
@@ -353,6 +440,9 @@ For logic statements:
 From highest (happens first) to lowest (happens last) precedence:
 
 
+////////////////////////////////////////////////
+
+∧ ∨ ¬ → 
 ////////////////////////////////////////////////
 
 Given this statement:
