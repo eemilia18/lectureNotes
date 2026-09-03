@@ -1,0 +1,349 @@
+HW 2 posted, due Tues Sep 8
+
+--> how to add image files?
+
+////////////////////////////////
+
+Today:
+- Using Logika
+- Propositional logic translations
+- Equivalent propositions
+- DeMorgan's laws
+- Equivalent if-statements
+- Negating if-statements
+- Proving equivalence with truth tables
+- Satisfiability
+
+/////////////////////////////////////////
+
+complete truth table in truth.logika
+
+--> what to type for different operators
+
+
+AND: &
+OR: |
+NOT: !
+IMPLIES: ->:
+
+alignment matters!
+
+--> order of operations in Logika
+
+
+
+--> getting special fonts
+
+
+//////////////////////////////////////
+
+Complete tautology.logika
+
+
+How to check work? 
+    Ctrl-Shift-W for Windows
+    Command-Shift-W for Mac
+
+//////////////////////////////////////
+
+--> if Logika checker doesn't work
+
+Sireum must be in a folder with no spaces
+
+Close CodeIve
+Find the Sireum folder
+Move to a place with no spaces
+Open CodeIVE again from the new location
+Should prompt again for Sireum home path
+
+////////////////////////////
+
+Propositional logic.
+
+
+- a set of propositional atoms (statements that can be T/F)
+    --> these will be our boolean variables in logic statements
+
+
+
+- connected by logical operators
+
+
+
+- join together to make new propositions (logical sentences)
+    that can be true or false
+
+
+
+////////////////////////////////////////
+
+Which ones are propositions?
+
+Today is Thursday.
+
+
+What time is it?
+
+
+x == 2
+
+
+Pigs can fly.
+
+
+Drive carefully.
+
+
+y <= 4
+
+
+
+////////////////////////////////////////
+
+Suppose we have these propositional atoms:
+
+    p: It is below freezing.
+    q: It is snowing.
+    r: y <= 4
+    s: x == 2
+
+How would we express these as English sentences/conditions?
+
+    ¬p:
+
+    p ∧ q:
+
+    p → q :
+
+    ¬p → ¬q:
+
+    r ∨ s:
+
+    ¬r:
+
+
+////////////////////////////////////////
+∧ ∨ ¬ →
+////////////////////////////////////////
+
+Example:
+
+You can't enroll for the course if you haven't taken 
+the prerequisite or the course is full.
+
+
+--> what are the propositional atoms?
+
+
+
+
+--> translate to propositional logic:
+
+
+
+What is the *contrapositive* of our statement?
+
+
+
+
+
+
+//////////////////////////////////////////
+∧ ∨ ¬ → 
+//////////////////////////////////////////
+
+Example:
+
+if (x <= 2 || y >= 0) {
+    if (z != 17) {
+        answer = 25;
+    }
+}
+
+Propositional atoms?
+
+
+
+Translation? (if ... then ...)
+
+
+
+
+
+//////////////////////////////////
+
+Consider these two statements:
+
+p: I am at least 16 years old
+q: I can drive a car
+
+1) If I am at least 16 years old, then I can drive a car.
+
+
+
+2) I'm not at least 16 years old or I can drive a car.
+
+
+
+
+--> are they saying the same thing?
+
+
+
+
+--> could we PROVE it? (equiv1.logika, equiv2.logika)
+
+
+
+
+//////////////////////////////////
+
+Consider these two statements:
+
+p: I am at least 16 years old
+q: I can drive a car
+
+1) If I am at least 16 years old, then I can drive a car.
+
+
+
+
+2) If I can drive a car, then I am at least 16 years old.
+
+
+
+--> are they saying the same thing?
+
+
+--> could we PROVE our answer?
+
+
+//////////////////////////////////
+
+Summary of equivalence.
+
+How do we prove two statements ARE equivalent?
+
+
+
+How do we prove two statements are NOT equivalent?
+
+
+
+
+//////////////////////////
+
+(in-class quiz)
+
+//////////////////////////////////
+
+DeMorgan's Laws.
+
+...DeMorgan has so many laws...
+    these are a couple of them.
+
+
+
+
+if (a == 4 || a == 5) {
+    statements
+}
+
+How could we express the NEGATION
+(i.e., what condition would be true for the "else")?
+
+
+
+///
+
+if (a == 4 && b == 5) {
+    statements
+}
+
+
+How could we express the NEGATION
+(i.e., what condition would be true for the "else")?
+
+
+
+//////////////////////////////
+
+DeMorgan's laws in propositional logic:
+
+¬(p ∨ q) is equivalent to... 
+
+
+
+¬(p ∧ q) is equivalent to... 
+
+
+////////////////////////
+
+--> how can we prove the first of DeMorgan's laws?
+(demorgan1.logika and demorgan2.logika)
+
+
+
+
+
+////////////////////////
+
+Negate this if-statement:
+
+if ((y >= 4 || num != 14) && x > 0) {
+    statements
+}
+
+
+
+//////////////////////////
+
+Satisfiability.
+
+- definition: a proposition is satisfiable if we can
+    find a truth assignment that makes the statement true
+
+
+
+- what kind of statement is satisfiable? what kind is not?
+
+
+
+
+- is this satisfiable?
+
+    (p ∨ ¬q) ∧ (q ∨ ¬r) ∧ (r ∨ ¬p)
+
+
+
+to show a statement is satisifiable: 
+
+
+to show a statement is NOT satisfiable: 
+
+
+
+
+////////////////////////////
+
+SAT
+
+straightforward approach to checking all possibilities:
+
+
+
+
+- Aside: P and NP problems
+
+running time programs
+
+can we solve a problem in polynomial time?
+
+can we check a solution to a problem in polynomial time?
+
+
+
+////////////////////////
+
+Next time:
+- Proving arguments
