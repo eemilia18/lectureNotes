@@ -37,12 +37,10 @@ alignment matters!
 
 //////////////////////////////////////
 
-Complete tautology.logika
-
-
 How to check work? 
     Ctrl-Shift-W for Windows
     Command-Shift-W for Mac
+
 
 //////////////////////////////////////
 
@@ -56,6 +54,12 @@ Move to a place with no spaces
 Open CodeIVE again from the new location
 Should prompt again for Sireum home path
 
+//////////////////////////////////////
+
+Complete tautology.logika
+
+
+
 ////////////////////////////
 
 Propositional logic.
@@ -64,6 +68,11 @@ Propositional logic.
 - a set of propositional atoms (statements that can be T/F)
     --> these will be our boolean variables in logic statements
 
+atoms should be minimal
+p: I am hungry
+q: I am thirsty
+
+p & q
 
 
 - connected by logical operators
@@ -79,22 +88,22 @@ Propositional logic.
 
 Which ones are propositions?
 
-Today is Thursday.
+Today is Thursday. yes
 
 
-What time is it?
+What time is it? no
 
 
-x == 2
+x == 2 yes
 
 
-Pigs can fly.
+Pigs can fly. yes
 
 
-Drive carefully.
+Drive carefully. no
 
 
-y <= 4
+y <= 4 yes
 
 
 
@@ -109,17 +118,12 @@ Suppose we have these propositional atoms:
 
 How would we express these as English sentences/conditions?
 
-    ¬p:
-
-    p ∧ q:
-
-    p → q :
-
-    ¬p → ¬q:
-
-    r ∨ s:
-
-    ¬r:
+    ¬p: It is not below freezing 
+    p ∧ q: It is below freezing and it is snowing
+    p → q : if it is below freezing, then it is snowing
+    ¬p → ¬q: if it's not below freezing, then it is not snowing
+    r ∨ s: y <= 4 || x == 2
+    ¬r: y > 4
 
 
 ////////////////////////////////////////
@@ -131,18 +135,27 @@ Example:
 You can't enroll for the course if you haven't taken 
 the prerequisite or the course is full.
 
+Really saying: if you haven't taken the prerequisite or
+    the course is full, then you can't enroll for the course
 
 --> what are the propositional atoms?
 
-
-
+p: you can enroll for the course
+q: you have taken the prerequisite
+r: the course is full
 
 --> translate to propositional logic:
-
+¬q ∨ r → ¬p
 
 
 What is the *contrapositive* of our statement?
 
+p → q has a contrapositive of ¬q → ¬p
+
+
+¬q ∨ r → ¬p
+has contrapositive of: p → ¬(¬q ∨ r)
+    equivalent after DeMorgan: p → q ∧ ¬r
 
 
 
@@ -159,12 +172,15 @@ if (x <= 2 || y >= 0) {
         answer = 25;
     }
 }
-
 Propositional atoms?
-
-
+    p: x <= 2
+    q: y >= 0
+    r: z == 17
+    s: answer == 25
 
 Translation? (if ... then ...)
+    (p ∨ q) ∧ ¬r → s
+
 
 
 
@@ -179,12 +195,18 @@ q: I can drive a car
 
 1) If I am at least 16 years old, then I can drive a car.
 
+p → q
 
+only false: 
+p: T (I am at least 16)
+q: F (I can't drive)
 
 2) I'm not at least 16 years old or I can drive a car.
 
+¬p ∨ q
 
-
+p: T (I am at least 16)
+q: F (I can't drive)
 
 --> are they saying the same thing?
 
@@ -194,6 +216,11 @@ q: I can drive a car
 --> could we PROVE it? (equiv1.logika, equiv2.logika)
 
 
+Explanation:
+The two statements have exactly the same output for every possible 
+truth assignment.
+
+Not: they match 
 
 
 //////////////////////////////////
@@ -205,18 +232,23 @@ q: I can drive a car
 
 1) If I am at least 16 years old, then I can drive a car.
 
-
+p → q
 
 
 2) If I can drive a car, then I am at least 16 years old.
 
-
+q → p
 
 --> are they saying the same thing?
-
+no
 
 --> could we PROVE our answer?
+find ONE truth assignment that makes one statement true but
+the other false
 
+p: T, q: F 
+makes p → q false 
+but makes q → p true
 
 //////////////////////////////////
 
@@ -224,10 +256,14 @@ Summary of equivalence.
 
 How do we prove two statements ARE equivalent?
 
-
+complete two truth tables
+demonstrate that for each possible truth assignment the statements
+have the same output
 
 How do we prove two statements are NOT equivalent?
 
+find ONE truth assignment that makes one statement true but
+the other false
 
 
 
@@ -252,6 +288,7 @@ if (a == 4 || a == 5) {
 How could we express the NEGATION
 (i.e., what condition would be true for the "else")?
 
+if (a != 4 && a != 5)
 
 
 ///
@@ -264,17 +301,17 @@ if (a == 4 && b == 5) {
 How could we express the NEGATION
 (i.e., what condition would be true for the "else")?
 
-
+if (a != 4 || b != 5)
 
 //////////////////////////////
 
 DeMorgan's laws in propositional logic:
 
-¬(p ∨ q) is equivalent to... 
+¬(p ∨ q) is equivalent to... ¬p ∧ ¬q
 
 
 
-¬(p ∧ q) is equivalent to... 
+¬(p ∧ q) is equivalent to... ¬p ∨ ¬q
 
 
 ////////////////////////
@@ -283,7 +320,12 @@ DeMorgan's laws in propositional logic:
 (demorgan1.logika and demorgan2.logika)
 
 
+equivalent because every possible truth assignment gives the 
+same output for both statements
 
+/////////////////////////
+
+<-- stopped here, will continue next Tuesday
 
 
 ////////////////////////

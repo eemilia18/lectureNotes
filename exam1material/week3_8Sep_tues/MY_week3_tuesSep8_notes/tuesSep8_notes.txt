@@ -1,0 +1,440 @@
+HW 2 due today
+
+HW 3 will be posted after class, due next Tues
+
+////////////////////////////
+
+Today:
+- Apply DeMorgan's laws
+- Satisfiability
+- Proving arguments
+- Start on natural deduction
+
+////////////////////////////////
+
+Negate this if-statement:
+
+if ((y >= 4 || num != 14) && x > 0) {
+    statements
+}
+
+
+
+//////////////////////////
+
+Satisfiability.
+
+- definition: a proposition is satisfiable if we can
+    find a truth assignment that makes the statement true
+
+
+
+- what kind of statement is satisfiable? what kind is not?
+
+
+
+
+- is this satisfiable?
+
+    (p ∨ ¬q) ∧ (q ∨ ¬r) ∧ (r ∨ ¬p)
+
+
+
+to show a statement is satisifiable: 
+
+
+to show a statement is NOT satisfiable: 
+
+
+////////////////////////////////
+∧ ∨ ¬ →
+///////////////////////////////
+
+Proving an argument.
+
+*Premises* - pieces of information we are given (assume true)
+
+*Conclusion* - something we are trying to show logically 
+    follows from our premises.
+
+
+
+An argument is of the form:
+
+    IF all the premises really are true, 
+    THEN the conclusion is true
+
+
+
+--> When is an argument considered valid?
+
+
+
+
+///////////////////////////////////////
+
+Proofs with truth tables.
+
+Suppose we know:
+
+    - I am in the CS dept or I am in the ECE dept
+    - I am not in the ECE dept
+    - I can log in to the CS lab computers if
+        I am in the CS dept
+
+I want to prove:
+
+    - I can log in to the CS lab computers
+        and I am in the CS dept
+
+--> How would we translate to propositional logic?
+
+
+Propositional atoms:
+
+
+
+Translations:
+
+
+
+--> How to prove with a truth table?
+
+
+
+
+////////////////////////////////
+∧ ∨ ¬ →
+////////////////////////////////
+
+Format for a truth table proof:
+
+             (mark * for each premise/conclusion)
+--------------------------------------------------------------
+variables # (premise1, premise2, ..., premiseN) ⊢ conclusion
+---------------------------------------------------------------
+... fill in like a truth table for each premise and conclusion
+---------------------------------------------------------------
+
+Valid [T assigns where all premises T - conclusion should also be T]
+
+
+
+////////////////////////////
+
+Example: truthTableProof1.logika
+
+/////////////////////////////
+
+Another example (truthTableProof2.logika)
+
+Premises:
+    p → ¬q
+    p → q
+    p ∨ q
+
+We wish to prove:
+
+    q
+
+
+
+
+
+/////////////////////////////
+
+When is an argument invalid?
+
+
+
+
+Example (from HW 1):
+
+Premises:
+    You'll stop eating at Chipotle if they raise their prices.
+
+    Chipotle doesn't raise their prices
+
+Proposed conclusion:
+    I stop eating at Chipotle
+
+    
+
+1) Translate to propositional logic
+
+
+
+
+
+2) How can we show it is invalid?
+
+
+
+
+////////////////////////////////
+
+∧ ∨ ¬ →
+
+////////////////////////////////
+
+Showing arguments are invalid in Logika
+
+(invalidProof.logika)
+
+
+
+////////////////////////////
+
+Does it matter if the conclusion is true when 
+    the premises aren't?
+
+
+Does it matter if one premise is true when the other isn't?
+
+Does it matter if the conclusion is false when some 
+    (but not all) of the premises are true?
+
+////////////////////////////
+
+Downside of proofs with truth tables?
+
+
+
+
+
+
+////////////////////////////
+
+(in-class quiz)
+
+
+////////////////////////////
+
+New idea: demonstrate conclusion follows from premises using
+*natural deduction*
+
+--> use a minimal set of deduction rules
+
+--> for each logical operator
+    - *introduction* rule:
+        lets us introduce a claim with that operator
+
+    - *elimination* rule:
+        lets us extract pieces from a claim with
+            that operator
+
+--> apply these rules to create new claims that 
+    logically follow
+
+
+
+/////////////////////////////////
+
+Want to prove a *sequent* of the form:
+
+    premises ⊢ conclusion
+
+where *premises* is a comma-separated list.
+
+
+
+
+
+Same idea as truth tables.
+ --> want to prove that anytime the premises are all true,
+    then the conclusion is also true.
+
+
+--> but we will show the conclusion logically follows using
+a series of natural deduction rules instead of truth tables.
+
+
+////////////////////////////
+
+AND rules idea.
+
+1) What if we wanted to INTRODUCE an AND operator, like:
+      P ∧ Q
+
+
+   --> in what situations do you think we could do that?
+
+
+
+
+
+2) What if we already had an AND statement like  P ∧ Q.
+
+    --> what new claims would make sense using that statement?
+
+
+
+
+    --> what happened to the AND operator in both cases?
+
+
+
+//////////////////////////
+
+AND rule summaries.
+
+
+AND introduction:
+
+         P   Q
+AndI : ---------
+         P ∧ Q
+
+
+
+--> How could we demonstrate this rule in a truth table?
+
+
+
+
+///
+
+AND elimination:
+
+          P ∧ Q               P ∧ Q
+AndE1 : ---------   AndE2 : ---------
+          P                     Q
+
+
+
+--> How could we demonstrate these rules in a truth table?
+
+
+
+//////////////////////////////////
+
+What if we knew:
+
+    a ∨ ¬b
+
+and also:
+
+    c → d
+
+What could we claim with AndI?
+
+
+
+
+
+//////////////////////////////////
+
+Natural deduction proof syntax.
+
+(premises) ⊢ (conclusion)
+Proof(
+    1 (  claim          ) by Justification,
+    2 (  claim          ) by Justification,
+    ...
+    10 (  conclusion    ) by Justification
+)
+
+
+
+
+claim: a propositional logic statement
+justificaton: the rule justifying the corresponding claim
+    (with line numbers to reference previous claims)
+
+
+
+/////////////////////////////////
+
+Justifications so far:
+
+    Premise
+
+    AndI(lhsNum, rhsNum)
+
+    AndE1(andNum)
+
+    AndE2(andNum)
+
+
+--> what do these look like in programming?
+
+--> what do you think they're actually doing?
+
+
+
+////////////////////////////////
+
+Example:
+
+Given premises:  a ∧ b, c
+Use natural deduction to prove: b ∧ c
+
+(and1.sc)
+
+/////////////////////////////////
+
+Prove the following sequent (and2.sc)
+
+p, q, r ⊢ r ∧ (q ∧ p)
+
+
+
+////////////////////////////////
+
+Prove the following sequent (and3.sc)
+
+p ∧ q ∧ r ⊢ q
+
+
+////////////////////////////////
+
+
+OR introduction
+
+          P                      Q
+OrI1 : ---------        OrI2 : ---------
+        P ∨ Q                   P ∨ Q
+
+
+
+
+Syntax:
+
+OrI1(lineWithLeft)
+OrI2(lineWithRight)
+
+///////////////////////////////////////////
+
+Example:
+
+(p ∧ q) ⊢ (p ∨ q)
+Proof(
+    1 ( p ∧ q   ) by Premise,
+    2 ( p ) by AndE1(1),
+    3 ( p ∨ q ) by OrI1(2)
+)
+
+
+
+
+Or, could have done:
+
+(p ∧ q) ⊢ (p ∨ q)
+Proof(
+    1 ( p ∧ q   ) by Premise,
+    2 ( q ) by AndE2(1),
+    3 ( p ∨ q ) by OrI2(2)
+)
+
+
+
+
+
+///////////////////////////////////////////
+
+Next time:
+
+- OR elimination rule in natural deduction
+- Natural deduction to prove two statements are equivalent
+- Equivalent if-statements
+- If time, implies rules in natural deduction
