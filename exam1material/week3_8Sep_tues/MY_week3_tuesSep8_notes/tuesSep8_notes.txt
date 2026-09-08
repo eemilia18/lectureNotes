@@ -18,9 +18,14 @@ if ((y >= 4 || num != 14) && x > 0) {
     statements
 }
 
-
+Negated: if ((y < 4 && num == 14) || x <= 0) 
 
 //////////////////////////
+
+truth tables classification:
+    contingent - mix of true and false
+    contradictory - always false
+    tautology - always true
 
 Satisfiability.
 
@@ -38,13 +43,19 @@ Satisfiability.
 
     (p ∨ ¬q) ∧ (q ∨ ¬r) ∧ (r ∨ ¬p)
 
+p: T 
+q: T 
+r: T 
 
+this makes the entire statement true. 
 
 to show a statement is satisifiable: 
-
+    just need ONE truth assignment that makes in true
+    *could* fill in a truth table if you can't find one easily 
 
 to show a statement is NOT satisfiable: 
-
+    need to fill in the WHOLE truth table 
+    need to show it is classified as contradictory
 
 ////////////////////////////////
 ∧ ∨ ¬ →
@@ -64,12 +75,17 @@ An argument is of the form:
     IF all the premises really are true, 
     THEN the conclusion is true
 
+premise1 && premise2 && ... && premiseN ->: conculsion 
 
+--> when is an arugement considered invalid?
+    promise broken
+    all premise true
+    but conclusion is false 
 
 --> When is an argument considered valid?
-
-
-
+    not invalid 
+    every truth assignment that made all premises true
+        also made the conclusion true
 
 ///////////////////////////////////////
 
@@ -89,18 +105,37 @@ I want to prove:
 
 --> How would we translate to propositional logic?
 
-
 Propositional atoms:
+    p: I'm in the cs dept 
+    q: I'm in ECE dept 
+    r: I can log into the cs lab computers 
 
 
 
-Translations:
+Translations: 
+    - I am in the CS dept or I am in the ECE dept
+        p || q
 
+    - I am not in the ECE dept
+        !q 
 
+    - I can log in to the CS lab computers if
+        I am in the CS dept
+        p ->: r 
+
+conclusion: r && p
+
+premise: 
+    p || q 
+    !q 
+    p ->: r 
+
+Conclusion: r && p 
+
+valid: every truth assignment that made all premise true
+    also made conclusion true 
 
 --> How to prove with a truth table?
-
-
 
 
 ////////////////////////////////
@@ -145,8 +180,8 @@ We wish to prove:
 
 When is an argument invalid?
 
-
-
+we can find a truth assignment where all premises are true 
+    but the conclusion is false 
 
 Example (from HW 1):
 
@@ -162,13 +197,20 @@ Proposed conclusion:
 
 1) Translate to propositional logic
 
+p: Chipotle raises prices 
+q: stop eating at Chipotle 
 
-
+Premises: p -> q, !p 
+Conclusion: q 
 
 
 2) How can we show it is invalid?
 
+ONE truth assignment where all premises true, conclusion false 
 
+p: F 
+q: F 
+makes both premises true but makes the conclusion false 
 
 
 ////////////////////////////////
@@ -188,11 +230,15 @@ Showing arguments are invalid in Logika
 Does it matter if the conclusion is true when 
     the premises aren't?
 
+Doesn't matter 
 
 Does it matter if one premise is true when the other isn't?
+    irrelevent 
 
 Does it matter if the conclusion is false when some 
     (but not all) of the premises are true?
+
+    doesn't matter 
 
 ////////////////////////////
 
