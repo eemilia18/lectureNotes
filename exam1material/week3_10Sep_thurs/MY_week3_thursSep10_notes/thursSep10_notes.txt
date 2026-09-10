@@ -238,7 +238,7 @@ complete two truth tables and show that the two statements
 --> how do we do it with proofs?
 
 premise ⊢ conclusion
-
+conclusion ⊢ premise
 
 
 
