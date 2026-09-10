@@ -1,0 +1,107 @@
+//Homework 1
+//1_logic.txt
+
+////////////////////////////////////
+
+1) Suppose we know the following premises:
+
+    - If you don't change your password, you'll get locked out of the lab computers.
+
+    - You don't get locked out of the lab computers.
+
+
+What conclusion, if any, can we draw from our premises? Explain.
+
+--> Type your conclusion below
+
+I must have changed my password, because if I didn't, I *would* have been locked out of the lab computers.
+
+
+////////////////////////////////////
+
+2) Suppose we know the following premises:
+
+    - You'll stop eating at Chipotle if they raise their prices.
+
+    - Chipotle doesn't raise their prices
+
+
+What conclusion, if any, can we draw from our premises? Explain.
+
+--> Type your conclusion below
+
+We can't conclude anything. I only promised to stop eating at Chipotle if they DID raise their prices.
+Since they didn't, I may or may not stop eating there.
+
+
+///////////////////////////////////
+
+3) Suppose we have the following code fragment:
+
+        x = 5;
+        if (a > 0) {
+            x = 7;
+            if (a % 2 == 1) {
+                y = 14;
+            }
+        }
+
+Just after the code fragment finishes, suppose we know that x is 7 but that y is NOT 14.
+What can we conclude about a? Explain.
+
+--> Type your conclusion below
+
+We can conclude that a is an even, positive number. x was initially 5, so the only way it
+would be 7 is if it went into the first if statement (which only happens when a is positive)
+where x is set to 7.
+
+Since y is not 14, we know we must not have gone into the inner if-statement where y
+is set to 14. That happens when a is odd, so we know a must be even.
+
+Putting everything together, we know a is an even, positive number.
+
+
+////////////////////////////////////
+
+4) Suppose we have the following code fragment:
+
+    y = 0;
+    if (a > 10 && a < 20) {
+        x = 20;
+    }
+    else {
+        if (a > 10) {
+            y = 17;
+        }
+    }
+
+Part 1: Just after the code fragment finishes, suppose we know that y is 17 but that x is NOT 20.
+What can we conclude about a? Explain.
+
+--> Type your conclusion below
+
+Since x is not 20, we must not have entered the outer if statement (which happens when a
+is between 10 and 20, noninclusive). So a must be either less than or equal to 10, or
+greater than or equal to 20.
+
+Since y is 17 (and was 0 before the conditional), we know we must have entered the inner
+if statement (where y is set to 17). This tells us that a is greater than 10.
+
+Putting the two together, we can conclude that a is greater than or equal to 20.
+
+///
+
+Part 2: What if the statement "y = 0;" was removed from the beginning of the code fragment. Would
+that affect what we could conclude in Part 1 (if we still knew that y was 17 and that x was not 20
+just after the code fragment finishes)? Explain.
+
+--> Type your conclusion below
+
+We would still be able to conclude that we didn't enter the first if-statement (because
+x would have been set to 20 if we had). This means we still know that a is either less than or
+equal to 10, or that a is greater than or equal to 20.
+
+We can't conclude anything from y being 17, though. Since we don't know y's initial value,
+it may have been 17 already before the code fragment. We don't know whether or not we
+entered the inner if-statement. We can only conclude that a is either less than or
+equal to 10, or that a is greater than or equal to 20.

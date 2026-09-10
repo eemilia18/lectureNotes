@@ -1,0 +1,100 @@
+//Homework 1
+//2_puzzles.txt
+
+On the island of Knights and Knaves, every inhabitant is either a knight or a knave.
+Knights always tell the truth, and knaves always lie.
+
+
+////////////////////////////////////
+
+5) You see inhabitants Gabe, Harry, and Caitlin.
+
+Gabe says: All three of us are knaves.
+Caitlin says: Exactly one of us is a knight.
+(Harry doesn't say anything.)
+
+//type your solution (knight or knave) next to each question
+What type is Gabe? knave
+What type is Harry? knave
+What type is Caitlin? knight
+
+//Explain your reasoning below. Why is your answer the ONLY one that works?
+
+Suppose Gabe is a knight. Then his statement doesn't work, as not all three of them would be knaves.
+Suppose instead that Gabe is a knave. Then at least one between Caitlin and Harry must be a knight (to make Gabe's statement false).
+   Suppose that Caitlin is a knight. For her statement to be true, Harry would need to be a knave. This would also correctly make Gabe's
+       statement false, as not all of them would be knaves.
+   Suppose instead that Caitlin is a knave. Then it couldn't be the case that Harry was a knight, because then her statement would be true.
+       It also couldn't be the case that Harry was a knave, since this would make Gabe's statement true instead of false.
+
+
+
+////////////////////////////////////
+
+6) You see inhabitants Gabby, Lewis, and Ellie.
+
+Gabby says: Lewis and I are both knights.
+Lewis says: Ellie would say I am a knight.
+Ellie says: Either I am a knight or Lewis is a knight, but not both of us.
+
+//type your solution (knight or knave) next to each question
+What type is Gabby? knave
+What type is Lewis? knave
+What type is Ellie? knight
+
+//Explain your reasoning below. Why is your answer the ONLY one that works?
+
+Suppose Gabby is a knight. Then Lewis must also be a knight.
+   Looking at Lewis's statement, Ellie must be a knight (only a knight would truthfully say Lewis is a knight).
+   Ellie's statement wouldn't work in this configuration, since both she and Lewis would be knights (which makes her statement false).
+
+Suppose instead that Gabby is a knave. From Gabby's statement, Marshall could be either a knight or a knave (either would make her statement false).
+   Suppose Lewis is a knight. This causes the same problem as before -- Ellie would need to be a knight, but that would make her statement false.
+   Suppose Lewis is a knave. This means Ellie would actually say that he was a knave.
+       Suppose Ellie is a knight. This makes Lewis's statement work, as Ellie would truthfully say that Lewis was a knave.
+           Ellie's statement works too, as only one of her and Lewis is a knight.
+       Suppose instead that Ellie is a knave. Lewis's statement wouldn't work, as a knave wouldn't say that Lewis was a knave (because that would be true).
+
+
+///////////////////////////////////
+
+7) Your award-winning koi fish was stolen from your pond. You know the thief was either Agatha, Ferdinand, or Carl.
+
+       Agatha says: "Don't look at me! I didn't steal your oversized goldfish."
+       Carl says: "Me either! I prefer turtles anyway."
+
+       Then you ask Ferdinand, "Did Agatha and Carl tell the truth?"
+       Ferdinand replies, "At least one of them did."
+
+   You later learn that Carl and Ferdinand were not both telling the truth. (Careful -- this is a different statement
+   than "Carl and Ferdinand were both not telling the truth".)
+
+
+   --> Who stole your koi? Explain your answer.
+
+   It was Carl!
+
+   Suppose Agatha stole the koi. Then we can evaluate the truth of each person's statement as follows:
+       Agatha: false
+       Carl: true
+       Ferdinand: true
+
+   However, we know that Carl and Ferdinand were not both telling the truth, so this is not possible.
+
+
+   Suppose instead that Carl stole the koi. Then we can evaluate the truth of each person's statement as follows:
+       Agatha: true
+       Carl: false
+       Ferdinand: true
+
+   Furthermore, it IS the case that Carl and Ferdinand were not both telling the truth, which works.
+
+
+   Finally, suppose that Ferdinand stole the koi. We again evaluate the truth of each animal's statement:
+       Agatha: true
+       Carl: true
+       Ferdinand: true
+
+   However, this has both Carl and Ferdinand telling the truth, which we were told did not happen.
+
+   Conclusion: Carl stole the koi

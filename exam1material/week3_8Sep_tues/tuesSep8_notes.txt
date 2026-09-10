@@ -19,8 +19,18 @@ if ((y >= 4 || num != 14) && x > 0) {
 }
 
 
+if (!((y >= 4 || num != 14) && x > 0)) 
+if (!(y >= 4 || num != 14) || x <= 0) 
+
+Answer:
+if ((y < 4 && num == 14) || x <= 0) 
 
 //////////////////////////
+
+truth tables classification:
+    contingent - mix of true and false
+    contradictory - always false
+    tautology - always true
 
 Satisfiability.
 
@@ -30,6 +40,8 @@ Satisfiability.
 
 
 - what kind of statement is satisfiable? what kind is not?
+    satisfiable: tautology, contingent
+    not satisfiable: contradictory
 
 
 
@@ -38,12 +50,20 @@ Satisfiability.
 
     (p ∨ ¬q) ∧ (q ∨ ¬r) ∧ (r ∨ ¬p)
 
+p: T
+q: T
+r: T
 
+this makes the entire statement true
 
 to show a statement is satisifiable: 
+    just need ONE truth assignment that makes it true 
+    *could* fill in a truth table if you can't find one easily
 
 
 to show a statement is NOT satisfiable: 
+    need to fill in the WHOLE truth table 
+    need to show it is classified as contradictory 
 
 
 ////////////////////////////////
@@ -64,9 +84,18 @@ An argument is of the form:
     IF all the premises really are true, 
     THEN the conclusion is true
 
+premise1 ∧ premise2 ∧ ... ∧ premiseN → conclusion 
 
+--> when is an argument invalid?
+    promise broken
+    all premises are true
+    but conclusion is false
+    considered invalid if this EVER happens for any truth assignment
 
 --> When is an argument considered valid?
+    not invalid 
+    every truth assignment that made all the premises true 
+        also made the conclusion true 
 
 
 
@@ -89,19 +118,42 @@ I want to prove:
 
 --> How would we translate to propositional logic?
 
-
 Propositional atoms:
-
+    p: I'm in the CS department
+    q: I'm in the ECE department
+    r: I can log in to the CS lab computers
 
 
 Translations:
 
+Premises:
+    - I am in the CS dept or I am in the ECE dept
+        p ∨ q
 
+    - I am not in the ECE dept
+        ¬q    
+
+    - I can log in to the CS lab computers if
+        I am in the CS dept
+        p → r
+
+
+Conclusion:     - I can log in to the CS lab computers
+        and I am in the CS dept
+
+        r ∧ p
 
 --> How to prove with a truth table?
 
+Premises: 
+    p ∨ q
+    ¬q
+    p → r
 
+Conclusion: r ∧ p
 
+valid: every truth assignment that made all premises true
+    also made conclusion true 
 
 ////////////////////////////////
 ∧ ∨ ¬ →
@@ -145,6 +197,9 @@ We wish to prove:
 
 When is an argument invalid?
 
+we can find a truth assignment where all premises are true
+but the conclusion is false 
+
 
 
 
@@ -161,13 +216,19 @@ Proposed conclusion:
     
 
 1) Translate to propositional logic
+    p: Chipotle raises their prices
+    q: You stop eating at Chipotle
 
-
-
+Premises: p → q, ¬p
+Conclusion: q
 
 
 2) How can we show it is invalid?
+ ONE truth assignment where all premises true, conclusion false
 
+ p: F
+ q: F
+makes both premises true but makes the conclusion false
 
 
 
@@ -188,11 +249,16 @@ Showing arguments are invalid in Logika
 Does it matter if the conclusion is true when 
     the premises aren't?
 
+doesn't matter
 
 Does it matter if one premise is true when the other isn't?
+    irrelevant
+
 
 Does it matter if the conclusion is false when some 
     (but not all) of the premises are true?
+
+    doesn't matter 
 
 ////////////////////////////
 
@@ -259,7 +325,8 @@ AND rules idea.
 
    --> in what situations do you think we could do that?
 
-
+if I already had that P was true
+and I already had that Q was true 
 
 
 
@@ -267,7 +334,8 @@ AND rules idea.
 
     --> what new claims would make sense using that statement?
 
-
+P on its own
+Q on its own
 
 
     --> what happened to the AND operator in both cases?
@@ -320,7 +388,11 @@ What could we claim with AndI?
 
 
 
+//////////////////////////////////
+∧ ∨ ¬ →
+//////////////////////////////////
 
+<-- stopped here, will continue on Thursday
 
 //////////////////////////////////
 

@@ -1,0 +1,297 @@
+HW 3 due Tuesday, September 15
+Exam 1 will be Thursday, September 17
+    (more info posted tomorrow)
+
+////////////////////////////
+
+Today: continue natural deduction
+
+////////////////////////////
+
+Natural deduction proof syntax.
+
+(premises) ⊢ (conclusion)
+Proof(
+    1 (  claim          ) by Justification,
+    2 (  claim          ) by Justification,
+    ...
+    10 (  conclusion    ) by Justification
+)
+
+
+
+
+claim: a propositional logic statement
+justificaton: the rule justifying the corresponding claim
+    (with line numbers to reference previous claims)
+
+
+
+/////////////////////////////////
+
+Justifications so far:
+
+    Premise
+
+    AndI(lhsNum, rhsNum)
+
+    AndE1(andNum)
+
+    AndE2(andNum)
+
+
+--> what do these look like in programming?
+
+--> what do you think they're actually doing?
+
+
+
+////////////////////////////////
+
+Prove the following sequent (and2.sc)
+
+p, q, r ⊢ r ∧ (q ∧ p)
+
+
+
+////////////////////////////////
+
+Prove the following sequent (and3.sc)
+
+p ∧ q ∧ r ⊢ q
+
+
+////////////////////////////////
+
+
+OR introduction
+
+          P                      Q
+OrI1 : ---------        OrI2 : ---------
+        P ∨ Q                   P ∨ Q
+
+
+
+
+Syntax:
+
+OrI1(lineWithLeft)
+OrI2(lineWithRight)
+
+///////////////////////////////////////////
+
+Example:
+
+(p ∧ q) ⊢ (p ∨ q)
+Proof(
+    1 ( p ∧ q   ) by Premise,
+    
+
+)
+
+
+
+
+Or, could have done:
+
+(p ∧ q) ⊢ (p ∨ q)
+Proof(
+    1 ( p ∧ q   ) by Premise,
+    
+
+)
+
+
+
+///////////////////////////////////////////
+
+Example: orIntro.sc
+
+///////////////////////////////////////////
+
+OR elimination
+
+
+Idea:
+- If an OR statement is true, what do we know?
+
+
+
+
+
+
+- What if we can reach the same conclusion no matter which side
+    of the OR is true?
+
+
+
+
+
+
+Rule summary:
+
+
+               SubProof(          SubProof(
+                  Assume ( P ),      Assume ( Q ),
+      P ∨ Q       ...                ...
+                  R                  R
+               ),                  ),
+OrE : ---------------------------------------------
+                         R
+
+
+How does this relate to programming?
+
+
+if (condition) {
+    some result
+}
+else {
+    some result
+}
+
+--> what do we know is true here?
+
+
+
+
+
+
+///////////////////////////////
+
+Syntax for using OrE:
+
+(some line numbers are removed for ease of reading)
+
+a ( P ∨ Q   )       by Justification,
+b SubProof(
+    Assume(P),
+    ...
+    ( R   )         by Justification
+),
+c SubProof(
+    Assume(Q),
+    ...
+    ( R   )         by Justification
+),
+d ( R   )           by OrE(a, b, c)
+
+
+////////////////////////////////
+
+Example: prove that OR is commutative (orComm.sc)
+
+p ∨ q       vs      q ∨ p
+
+
+////////////////////////////////
+
+(in-class quiz)
+
+////////////////////////////////
+
+Order of operations:
+
+p ∨ q ∨ r
+
+with parentheses?
+
+--> If I used OrE, what would be the two assumes in
+    the subproofs?
+
+SubProof(
+    Assume ( ??? ),
+    ...
+),
+SubProof(
+    Assume ( ??? )
+)
+
+
+////////////////////////////////
+
+Proving equivalence.
+
+--> how do we prove two statements are equal in truth tables?
+
+
+
+
+
+--> how do we do it with proofs?
+
+premise ⊢ conclusion
+
+
+
+
+
+
+
+
+
+////////////////////////////////
+
+Example: prove one of the distributive laws
+
+p ∨ (q ∧ r)     is equivalent to       (p ∨ q) ∧ (p ∨ r)
+
+
+(orDist1.sc and orDist2.sc)
+
+--> complete first, recommend doing second as practice
+
+////////////////////////////////
+
+Implies-elimination, ImplyE
+
+          P, P → Q
+ImplyE: -----------
+            Q
+
+
+
+(This rule is also called "modus ponens")
+
+
+
+Example:
+
+//Suppose we know x > 5. What can we conclude?
+
+if (x > 5) {
+    y = 17;
+}
+
+
+
+///////////////////////////////
+
+Syntax for using ImplyE:
+
+a ( P       )   by Justification,
+b ( P → Q   )   by Justification,
+c ( Q       )   by ImplyE(b, a)
+
+
+What you type for → 
+    __>:
+
+////////////////////////////////////////
+
+Example (imply1.logika):
+
+(p ∧ q) → r,  p → q,  p  ⊢ r
+
+
+
+Example (imply2.logika):
+
+p → r,  q → r,  p ∨ q  ⊢ r
+
+
+////////////////////////////////////////
+
+Next time:
+- Finish rules for implies operator
+- Review for exam
