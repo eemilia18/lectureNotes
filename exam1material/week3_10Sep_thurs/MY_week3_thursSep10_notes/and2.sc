@@ -10,10 +10,19 @@ import org.sireum.justification.natded.prop._
 
 @pure def and2(p: B, q: B, r: B): Unit = {
   Deduce(
+    //what if r & q & p? different order ops
     (p, q, r) |- (r & (q & p))
       Proof(
         //PROOF GOES HERE
-        
+        1 ( p ) by Premise, 
+        2 ( q ) by Premise, 
+        3 ( r ) by Premise,  
+        4 ( q & p ) by AndI(2, 1), 
+        5 ( r & (q & p) ) by AndI(3, 4)
+
+        //last thing: ANDI to create the conclusion
+        //need to have: r (left side) 
+        //need to have: q & p (right side)
       )
   )
 }
