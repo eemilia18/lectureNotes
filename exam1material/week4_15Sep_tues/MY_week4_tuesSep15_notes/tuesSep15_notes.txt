@@ -1,7 +1,7 @@
 HW 3 due tonight
 
 Exam 1 is Thursday, September 17
-
+    TA review session: Wed. Sep. 16, 2-4:30, DUE 1118 
 
 No new homework this week
 
@@ -80,10 +80,14 @@ General proof strategy to this point
 
 1) list premises
 2) break down any premises you can to get extra information
+    AND statement -extract both sides 
+    IMPLIES statment - see if you already have the left side then use ImplyE
+
 
 3) look at the conclusion
 
 4) consider if you will need OrE (probably will if you have an OR)
+    ( probably will if you have Or as premise)
 
 Always consider order of operations!
 
@@ -107,31 +111,53 @@ See Canvas announcement for list of topics.
 How to prove two propositional logic statements are 
 equivalent?
 
+two truth tables that have the same output for every possible input, 
 
+deduction from both sides 
 
 
 How to prove propositional logic statements are 
 NOT equivalent?
 
+find one truth assignment where the outputs differ 
+
+can't prove not equivalent with deduction
 
 What is satisfiability? 
+    I can find at least one truth assingment that makes a statement true
 
+    just need one 
 
 To show NOT satisfiable?
+    a full truth table where there are no true outcomes 
+    would be contradictory
 
+filling out truth tables
+     mark top-level opperators 
+     fill in under each opperator 
+     classify it at the bottom 
+        contingent - give truth assignments 
 
 - Determining whether an argument is valid or invalid
     (what is an argument?)
+
+    arguement: set of premises, a conclusion 
+        show: premises -> conclusion 
 
 
     valid: 
 
 
     how prove valid?
-
+        truth table: find all truth assignments where every premise is true, 
+            make sure the conclusion is also true 
+        
+        could also use deduction to priove that the premise |- conclusion 
 
     how prove invalid?
+        find one truth assignment where premise all true and conc false
 
+        cant use deduction 
 
 
 /////////////////////////////////////////
