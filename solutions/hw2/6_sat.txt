@@ -1,0 +1,34 @@
+//Homework 2
+//6_sat.txt
+
+For each of the following propositional logic statements, write either "satisfiable"
+or "not satisfiable". If a statement is satisfiable, include a truth assignment
+that demonstrates your claim. (You do not need to complete a full truth table.)
+
+
+
+Sat problem 1:
+(p ∨ ¬q) ∧ (¬p ∨ q) ∧ (¬p ∨ ¬q)
+
+Satisfiable. p = F, q = F
+
+
+
+Sat problem 2:
+(p → q) ∧ (q → p) ∧ (¬p → q) ∧ (q → ¬p)
+
+Not satisfiable.
+
+
+
+Sat problem 3:
+(p ∨ q ∨ r) ∧ (¬p ∨ ¬q ∨ r) ∧ (p ∨ ¬q ∨ ¬r) ∧ (¬p ∨ q ∨ ¬r)
+
+Satisfiable. p = T, q = T, r = T (there are others)
+
+
+
+Sat problem 4:
+(p ∨ ¬q) ∧ (p ∨ q) ∧ (¬p ∨ ¬q) ∧ (¬p ∨ q)
+
+Not satisfiable. (Lists every combination of p/q)

@@ -34,10 +34,25 @@ Justifications so far:
     Premise
 
     AndI(lhsNum, rhsNum)
+        create an AND statement
+
+        statement1 ∧ statement2
+        need statement1 on line lhsNum
+        need statement2 on line rhsNum
 
     AndE1(andNum)
+        already have an AND statement like:
+            statement1 ∧ statement2
+
+        want to separate it
+        give me statement1
 
     AndE2(andNum)
+        already have an AND statement like:
+            statement1 ∧ statement2
+
+        want to separate it
+        give me statement2
 
 
 --> what do these look like in programming?
@@ -53,6 +68,7 @@ Prove the following sequent (and2.sc)
 p, q, r ⊢ r ∧ (q ∧ p)
 
 
+--> what if the conclusion didn't have ()?
 
 ////////////////////////////////
 
@@ -85,21 +101,28 @@ Example:
 (p ∧ q) ⊢ (p ∨ q)
 Proof(
     1 ( p ∧ q   ) by Premise,
+    2 ( p ) by AndE1(1),
+    3 ( p ∨ q ) by OrI1(2)
     
-
+    //need either p on its own or q on its own
+    //last step: introduce the OR for p ∨ q
 )
-
-
-
 
 Or, could have done:
 
 (p ∧ q) ⊢ (p ∨ q)
 Proof(
     1 ( p ∧ q   ) by Premise,
+    2 ( q ) by AndE2(1),
+    3 ( p ∨ q ) by OrI2(2)
     
-
+    //need either p on its own or q on its own
+    //last step: introduce the OR for p ∨ q
 )
+
+
+
+
 
 
 
@@ -115,7 +138,8 @@ OR elimination
 Idea:
 - If an OR statement is true, what do we know?
 
-
+p ∨ q  as a claim
+know: either p is true, or q is true (or both)
 
 
 
@@ -124,8 +148,15 @@ Idea:
     of the OR is true?
 
 
+assume p is the one that's true
+    ...
+    reach conclusion
 
-
+now assume q is the one that's true
+    ...
+    reach SAME conclusion
+afterwards, can claim the conclusion is true 
+    (because it doesn't matter which of p or q led to it)
 
 
 Rule summary:
@@ -150,7 +181,7 @@ else {
     some result
 }
 
---> what do we know is true here?
+--> what do we know is true here? some result
 
 
 
@@ -200,11 +231,11 @@ with parentheses?
     the subproofs?
 
 SubProof(
-    Assume ( ??? ),
+    Assume ( p ∨ q ),
     ...
 ),
 SubProof(
-    Assume ( ??? )
+    Assume ( r )
 )
 
 
@@ -214,7 +245,9 @@ Proving equivalence.
 
 --> how do we prove two statements are equal in truth tables?
 
-
+complete two truth tables
+show that the two statements have the same output for 
+    every possible input 
 
 
 
@@ -222,9 +255,10 @@ Proving equivalence.
 
 premise ⊢ conclusion
 
+statement1 ⊢ statement2
+statement2 ⊢ statement1
 
-
-
+p & q |- p | q
 
 
 
@@ -239,7 +273,7 @@ p ∨ (q ∧ r)     is equivalent to       (p ∨ q) ∧ (p ∨ r)
 
 (orDist1.sc and orDist2.sc)
 
---> complete first, recommend doing second as practice
+--> skipping, do as practice 
 
 ////////////////////////////////
 
@@ -263,7 +297,9 @@ if (x > 5) {
     y = 17;
 }
 
+///////////////////////////////
 
+<-- stopped here, will continue Tuesday
 
 ///////////////////////////////
 

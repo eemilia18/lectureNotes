@@ -13,7 +13,12 @@ import org.sireum.justification.natded.prop._
     (p & q & r) |- (q)
       Proof(
         //PROOF GOES HERE
+        //p & q & r is really (p & q) & r
+        //p & q & r & s, AndE1 would give p & q & r
         1 ( p & q & r ) by Premise,
-        
+        2 ( p & q ) by AndE1(1),
+
+        3 ( q ) by AndE2(2)
+    )
   )
 }

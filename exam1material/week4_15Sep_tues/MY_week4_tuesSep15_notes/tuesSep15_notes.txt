@@ -1,0 +1,153 @@
+HW 3 due tonight
+
+Exam 1 is Thursday, September 17
+
+
+No new homework this week
+
+/////////////////////////////////////
+
+Today:
+- implies elimination natural deduction
+- exam 1 review
+
+/////////////////////////////////////
+
+ImplyE: implies-elimination
+
+
+          P,P → Q
+ImplyE: -----------
+            Q
+
+
+
+
+Syntax for using ImplyE:
+
+a ( P       )   by Justification,
+b ( P → Q   )   by Justification,
+c ( Q       )   by ImplyE(b, a)
+
+
+
+
+Implies symbol.
+
+Typing a → in Logika for natural deduction:
+
+    __>:
+
+(two underscores, >, :)
+
+//////////////////////////
+
+Example (imply1.sc):
+
+(p ∧ q) → r,  p → q,  p  ⊢ r
+
+
+
+Example (imply2.sc):
+
+p → r,  q → r,  p ∨ q  ⊢ r
+
+
+/////////////////////////////
+
+Bigger example: prac.sc
+
+/////////////////////////////
+
+**We will save the other implies rule, implies-introduction, until
+    AFTER exam 1
+
+**Exam 1 WILL include implies-elimination
+
+/////////////////////////////
+
+/////////////////////////
+
+Logika features/tips
+
+- renumber/reformat proofs
+- interpreting errors
+
+
+/////////////////////////
+
+General proof strategy to this point
+
+1) list premises
+2) break down any premises you can to get extra information
+
+3) look at the conclusion
+
+4) consider if you will need OrE (probably will if you have an OR)
+
+Always consider order of operations!
+
+/////////////////////////
+
+(in-class quiz)
+
+/////////////////////////
+
+Exam 1 review.
+
+Covers everything we've done up to this point 
+(including today).
+
+
+See Canvas announcement for list of topics.
+
+
+
+
+How to prove two propositional logic statements are 
+equivalent?
+
+
+
+
+How to prove propositional logic statements are 
+NOT equivalent?
+
+
+What is satisfiability? 
+
+
+To show NOT satisfiable?
+
+
+- Determining whether an argument is valid or invalid
+    (what is an argument?)
+
+
+    valid: 
+
+
+    how prove valid?
+
+
+    how prove invalid?
+
+
+
+/////////////////////////////////////////
+
+Closed notes/computers.
+
+
+Mix of multiple choice (like quizzes) and open-ended 
+    (like homework)
+
+Some problems will ask for a proof or explanation --
+    read carefully!
+
+
+How to review?
+
+////////////////////////////////////////
+
+See practice exam

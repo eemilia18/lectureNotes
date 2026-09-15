@@ -1,0 +1,62 @@
+//Homework 2
+//5_demorgan.txt
+
+In class, we demonstrated DeMorgan's laws for propositional logic.
+
+
+DeMorgan's problem 1:
+
+Use DeMorgan's laws to write an if-statement whose condition is the
+negation of the condition in the if-statement below. Write your
+if-statement in such a way that it does not use any ! (not) symbols.
+
+if (a != 8 && str.contains(piece) == false) {
+    //statements
+}
+
+
+Negated condition:
+
+if (a == 8 || str.contains(piece)) {
+    //statements
+}
+
+
+
+DeMorgan's problem 2:
+
+Use DeMorgan's laws to write an if-statement whose condition is the
+negation of the condition in the if-statement below. Write your
+if-statement in such a way that it does not use any ! (not) symbols.
+
+if (val > 45 || nums.length <= 10) {
+    //statements
+}
+
+
+Negated condition:
+
+if (val <= 45 && nums.length > 10) {
+    //statements
+}
+
+
+
+
+
+DeMorgan's problem 3:
+
+Apply DeMorgan's laws multiple times to write an if-statement whose condition is the
+negation of the condition in the if-statement below. Write your
+if-statement in such a way that it does not use any ! (not) symbols.
+
+if ((score >= 80 && score <= 100) || (s.quizOut() == true && level < 5) {
+    //statements
+}
+
+
+Negated condition:
+
+if ((score < 80 || score > 100) && (s.quizOut() == false || level >= 5)) {
+    //statements
+}
