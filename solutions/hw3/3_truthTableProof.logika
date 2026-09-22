@@ -1,0 +1,37 @@
+//Suppose we have a logical argument with the following premises and conclusion:
+
+    //Premises: p ∨ ¬q, r → q, r ∨ q
+    //Conclusion: p ∧ q
+
+//Use a truth table to prove that the argument is valid. You should get the message "Logika verified"
+//when you finish.
+
+//After your truth table(s), write a brief explanation of why you know
+//from your truth tables that the argument is valid.
+
+//PUT YOUR EXPLANATION HERE (start each line with //)
+
+//The argument is valid because every truth assignment that made all the premses true 
+//also made the conclusion true. The truth assignments [T T T] and [T T F] (for [p q r])
+//were the only ones that made each premise true, and they also made the conclusion true.
+
+
+
+
+//PUT YOUR TRUTH TABLE BELOW THIS LINE
+
+           *       *        *         *
+------------------------------------------
+p q r # (p | !q, r ->: q, r | q) |- p & q
+------------------------------------------
+T T T #    T F     T        T         T
+T T F #    T F     T        T         T
+T F T #    T T     F        T         F
+T F F #    T T     T        F         F
+F T T #    F F     T        T         F
+F T F #    F F     T        T         F
+F F T #    T T     F        T         F
+F F F #    T T     T        F         F
+--------------------------------------------
+
+Valid [T T T] [T T F]

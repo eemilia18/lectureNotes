@@ -1,0 +1,67 @@
+Consider these propositional atoms:
+
+p: It is cold
+q: I build a snowman
+r: It snows
+s: I go sledding
+
+In each part:
+
+    a) Translate each premise and the conclusion to English using the propositional atoms above
+    b) If the argument is valid, write "valid" and a sentence explaining how you could prove the validity
+        of the argument (you do not need to do the proof -- just explain what you would need to do).
+        If the argument is NOT valid, write "not valid" and include a truth assignment that is a counterexample.
+        (You do not need to complete a full truth table.)
+
+//////////////
+
+Part 1 (complete steps (a) and (b):
+
+    Premise: p → q
+    Conclusion: q → p
+
+a) Premise: If it is cold, then I build a snowman.
+    Conclusion: If I build a snowman, then it is cold.
+
+b) Not valid.
+    Counterexample: p = F, q = T
+        (premise is true, conclusion is false)
+
+
+//////////////
+
+Part 2 (complete steps (a) and (b):
+
+    Premises: (p ∨ q) → r, ¬q, ¬r
+    Conclusion: ¬p
+
+
+a) Premises: If it is cold or I build a snowman, then it snows.
+            I do not build a snowman.
+            It does not snow.
+
+    Conclusion: It is not cold.
+
+b) Valid.
+    To prove the validity, we would need to show that every truth assignment that made all three premises true
+        also made the conclusion true.
+
+
+//////////////
+
+Part 3 (complete steps (a) and (b):
+
+    Premises: ¬(q ∧ s), p → s, r → q
+    Conclusion: ¬r ∧ ¬s
+
+
+a) Premises: I don't both build a snowman and go sledding.
+            If it is cold, then I go sledding.
+            If it snows, then I build a snowman.
+
+    Conclusion: It doesn't snow and I don't go sledding.
+
+b) Not valid.
+    Counterexample: p = T, q = F, r = F, s = T
+        (makes each premise true but the conclusion false)
+        (there is more than one possible counterexample)
