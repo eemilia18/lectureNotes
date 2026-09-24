@@ -4,12 +4,11 @@ import org.sireum._
 import org.sireum.justification._
 import org.sireum.justification.natded.prop._
 
-@pure def imply3(p: B, q: B, r: B): Unit = {
+@pure def not4(p: B, q: B, r: B): Unit = {
   Deduce(
-    (p __>: (q __>: r)) |- ( (p __>: q) __>: (p __>: r)  )
+      ( !q __>: !p )|- ( p __>: q )
       Proof(
-      1 (  p __>: (q __>: r) ) by Premise,
-
+        1 (  !q __>: !p ) by Premise,
 
     )
   )

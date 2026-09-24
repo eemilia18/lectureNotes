@@ -72,17 +72,10 @@ Typing a → in Logika for natural deduction:
 
 //////////////////////////
 
-If you are trying to prove an implies statement, what should you
-always do?
-
+Strategy for proving →
 
 ImplyI examples:
 imp1.sc, imp2.sc, imp3.sc.
-
-
-//////////////////////////
-
-Strategy for proving →
 
 
 
@@ -131,6 +124,10 @@ a SubProof(
     c ( F ) by Justification
 ),
 d ( ¬p ) by NegI(a)
+
+///////////////////////////
+
+<-- stopped here, will continue Thursday
 
 ///////////////////////////
 
