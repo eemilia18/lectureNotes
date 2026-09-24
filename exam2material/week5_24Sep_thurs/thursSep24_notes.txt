@@ -1,0 +1,144 @@
+HW 4 due Tuesday, September 29
+
+Where to find office hour times
+
+How to make sure you understand the material
+
+///////////////////////////////////////
+
+Today:
+- Negation rules in natural deduction
+
+///////////////////////////////////////
+
+Reminder: NegE
+
+
+        P    ¬P
+NegE: ----------
+          F
+
+
+Syntax:
+
+a ( p  ) by Justification,
+b ( ¬p ) by Justification,
+c ( F  ) by NegE(a, b)
+
+
+//////////////////////////////////
+
+Reminder: NegI
+
+        SubProof(
+            Assume( P ),
+          ... F
+        )
+NegI: ------------------
+              ¬P
+
+
+Syntax:
+
+a SubProof(
+    b Assume( p ),
+    ...
+    c ( F ) by Justification
+),
+d ( ¬p ) by NegI(a)
+
+//////////////////////////
+
+Practice rules so far: 
+
+not1.sc, not2.sc, not3.sc
+
+////////////////////////////////
+
+Bottom-elimination:
+
+               F
+BottomE:  ----------
+               Q
+
+
+//how does this make logical sense?
+
+(think about what we are proving with an argument)
+
+/////////////////////////////////
+
+( p ∧ q, q → ¬p ) ⊢ ( ¬q )
+Proof(
+    1 ( p ∧ q )     by Premise,
+    2 ( q → ¬p )    by Premise,
+
+)
+
+
+/////////////////////////////////
+
+Proof by contradiction (reductio ad absurdum):
+
+        SubProof(
+            Assume(¬P),
+            ...
+            F
+        )
+PbC:  -------------------
+          P
+
+
+--> Difference between NegI and PbC?
+
+///////////////////////////////////
+
+( ¬¬p ) ⊢ ( p )
+Proof(
+    1 ( ¬¬p )   by Premise,
+
+)
+
+
+
+<-- what's wrong with using NegI?
+
+
+///////////////////////////////////
+
+(in-class quiz)
+
+
+//////////////////////////////////
+
+Finished quiz example.
+
+I go for a walk or I get coffee
+I don't go for a walk.
+
+Conclusion?
+
+
+
+( p ∨ q, ¬p ) ⊢ ( q )
+Proof(
+    1 ( p ∨ q )     by Premise,
+    2 ( ¬p )        by Premise,
+
+)
+
+
+//////////////////////////////////
+
+
+Examples: not4.sc, not5.sc
+
+
+//////////////////////////////////
+
+Next time:
+- putting everything together
+- proving theorems with deduction
+- soundness and completeness
+- proving equivalence
+- begin sets
