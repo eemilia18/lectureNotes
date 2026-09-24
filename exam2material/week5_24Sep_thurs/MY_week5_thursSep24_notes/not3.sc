@@ -11,6 +11,21 @@ import org.sireum.justification.natded.prop._
       Proof(
       1 (  p __>: q ) by Premise,
 
+      2 SubProof(
+        3 Assume( !q ), 
+        4 SubProof(
+          5 Assume( p ), 
+          6 ( q ) by ImplyE(1, 5),
+          7 ( F ) by NegE(6, 3), 
+        ),
+        //use NegI to creat goal
+        8 ( !p ) by NegI(4), 
+
+        //goal: !p
+      ),
+      9 ( !q __>: !p ) by ImplyI(2), 
+      //use implyI
+      //top level implies
     )
   )
 }
