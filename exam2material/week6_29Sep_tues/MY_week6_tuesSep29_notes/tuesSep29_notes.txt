@@ -20,8 +20,15 @@ p → q   equivalent to   ¬p ∨ q
 
 
 p → q  ⊢  ¬p ∨ q
+    try PbC 
+        assume !(!p | q) 
+            can we get !p | q
+                try negI to get !p 
+                    assume p 
 
-     
+
+        goal: get a contradiction 
+
 
 
 
@@ -41,6 +48,10 @@ HW 4 problem 7
 
 
 ¬(p → q)  ⊢  p ∧ ¬q
+    try PbC, assume !(p & !q)
+        try to get p -> q to contradict with the premise
+
+        goal: contradiction 
 
 
 
@@ -62,37 +73,48 @@ How do we approach proofs?
 3. Look at what you are trying to prove 
     (what do we look for in goal/conclusion?)
 
-    ∧ - 
+    ∧ - try AndI, think of two sides as separate proofs
 
-    ∨ -   
+    ∨ -   see if we can get one of the sides then use OrI 
+            another OR statement - try OrE
+            (always try OrE if possible before PbC)
 
-    → - 
+    → - ALWAYS follow ImplyI pattern
 
-    ¬(something) - 
+    ¬(something) - ALWAYS follow NegI pattern
 
-    just a propositional atom? like p.
+    just a propositional atom? like p. 
+        see where it shows up in premise 
+        see if or statement is available, try OrE
+        last resort PbC
 
 
-After each claim - 
+After each claim - scan prevous claims see if we can extract more info
 
 
 
 Inside a subproof - 
     (What are the different subproofs?)
+        OrE - both need same conclusion
+        ImplyI - assume LHS, end with RHS
+        NegI - F
+        PbC - F
 
     --> when do we open a subproof?
 
     --> can we assume anything in a subproof? 
-
+            always write goal for subproofas a notes
+                focus on providing THAT statement, maybe with tested subproofs
 
 
 
 Doesn't fit a pattern or doesn't work out from above?
-
+    PbC 
 
 
 When to use BottomE?
-
+    get F, conclude anything 
+    use very rarely 
 
 
 
@@ -112,7 +134,7 @@ p ∨ ¬p
 
 
 
-What would a theorem be in a truth table?
+What would a theorem be in a truth table? tautology
 
 
 
@@ -134,25 +156,25 @@ SOUNDNESS and COMPLETENESS of natural deduction in
     "true": demonstrate an argument with truth tables
 
 
-SOUNDNESS: ??
+SOUNDNESS: if all arguements that are provable are actually true
 
 p ∧ q 
 --------
 p
 
 
-COMPLETENESS: ??
+COMPLETENESS: if all true arguements are provable 
 
 
 
 
 
 --> what would it mean if a proof system was unsound?
-
+    it would mean I could prove untrue things... baaad 
 
 
 --> what would it mean if a proof system was incomplete?
-
+    ok... would mean there were true arguements I couldn't prove
 
 
 
@@ -179,6 +201,7 @@ are true, then q is also true
 Sets.
 
 A set is an unordered collection of elements
+        dont care abt duplicates or order 
 
 
 {1,1,3,5,7} = {1,3,5,7} = {7,3,1,5}
@@ -187,9 +210,9 @@ A set is an unordered collection of elements
 
 ∈: is in, exists in
 
-    x ∈ A  means?
+    x ∈ A  means?   element x exists in set A 
 
-    x ∉ A  means?
+    x ∉ A  means?   x does not exist in A 
 
 
 
@@ -202,14 +225,16 @@ Example: A = {1,4,7,11,20}
 
 - Common sets in math:
 
-    ℕ: 
-    ℤ: 
-    ℚ: 
-    ℝ: 
-    ℂ: 
-    ∅: 
+    ℕ: natural numbers (ints 1 and bigger)
+    ℤ: whole numbers (all ints pos and neg)
+    ℚ: rational numbers (fractions)
+    ℝ: real numbers (any number on numberline)
+    ℂ: complex numbers (can be writtent as a +bi)
+    ∅: empty set, {}
 
 ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
+
+⊂ subset
 
 ////////////////////////////////////
 
@@ -223,22 +248,28 @@ Set builder notation.
 
 {x: x ∈ ℕ, 5 ≤ x ≤ 10}
 
+{5, 6, 7, 8, 9, 10}
 
 
 {k : k is a letter in "abracadabra"}
+
+{a, b, c, r, d}
 
 
 
 {x : x = 2k,  k ∈ ℕ}
 
+{2, 4, 6, ...}
 
 
 {n : n = k^2, k ∈ Z}
 
+{0, 1, 4, 9, ...}
 
 
 {n : n = 3a + 1, a ∈ ℕ, 1 ≤ a ≤ 4}
 
+{ 4, 7, 10, 13}
 
 
 //////////////////////////////////////
