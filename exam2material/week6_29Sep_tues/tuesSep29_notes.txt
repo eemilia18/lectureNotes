@@ -1,5 +1,4 @@
 HW 4 due tonight
-    (remember to check link format)
 
 HW 5 will be posted after class
 
@@ -20,16 +19,16 @@ p → q   equivalent to   ¬p ∨ q
 
 
 p → q  ⊢  ¬p ∨ q
+    try PbC 
+        assume ¬(¬p ∨ q)
+            can we get ¬p ∨ q?
+                try negI to get ¬p
+                    assume p 
 
+
+
+        goal: get a contradiction
      
-
-
-
-¬p ∨ q   ⊢  p → q
-    assume p
-        assume q
-
-
 
 
 
@@ -41,11 +40,11 @@ HW 4 problem 7
 
 
 ¬(p → q)  ⊢  p ∧ ¬q
+    try PbC, assume ¬(p ∧ ¬q)
+        goal: contradiction
+        try to get p → q to contradict with the premise 
+            use ImplyI to try to get it
 
-
-
-
-p ∧ ¬q   ⊢   ¬(p → q)
 
 
 
@@ -62,36 +61,56 @@ How do we approach proofs?
 3. Look at what you are trying to prove 
     (what do we look for in goal/conclusion?)
 
-    ∧ - 
+    ∧ - try AndI, think of two sides as separate proofs 
 
-    ∨ -   
+    ∨ - see if we can get one of the sides, then use OrI
+        another OR statement - try OrE
+        (always try OrE if possible before PbC)
 
-    → - 
+    → - ALWAYS follow ImplyI pattern 
 
-    ¬(something) - 
+    ¬(something) - ALWAYS follow NegI pattern
 
     just a propositional atom? like p.
+        p ∧ q |- p
+        see where it shows up in premises, what we'd need to do
+            to get
+        see if you have an OR, try OrE
+        if nothing else works, try PbC 
 
 
-After each claim - 
+After each claim - scan previous claims, see if we can extract more
+    information
 
 
 
 Inside a subproof - 
     (What are the different subproofs?)
+        OrE - both need same conclusion 
+        ImplyI - assume LHS, end with RHS
+        NegI - F
+        PbC - F
 
     --> when do we open a subproof?
 
     --> can we assume anything in a subproof? 
+    SubProof(
+        Assume (anything)
+    ),
+    //
 
+    always write your goal for the subproof as a note
+        focus on proving THAT statement, maybe with nested subproofs
 
 
 
 Doesn't fit a pattern or doesn't work out from above?
-
+    PbC
 
 
 When to use BottomE?
+    get F, conclude anything 
+    use very rarely
 
 
 
@@ -112,7 +131,7 @@ p ∨ ¬p
 
 
 
-What would a theorem be in a truth table?
+What would a theorem be in a truth table? tautology
 
 
 
@@ -134,24 +153,25 @@ SOUNDNESS and COMPLETENESS of natural deduction in
     "true": demonstrate an argument with truth tables
 
 
-SOUNDNESS: ??
+SOUNDNESS: if all arguments that are provable are actually true 
 
 p ∧ q 
 --------
 p
 
 
-COMPLETENESS: ??
+COMPLETENESS: if all true arguments are provable 
 
 
 
 
 
 --> what would it mean if a proof system was unsound?
-
+    it would mean I could prove untrue things....baaaad
 
 
 --> what would it mean if a proof system was incomplete?
+    ok...would mean there were true arguments I couldn't prove
 
 
 
@@ -187,9 +207,9 @@ A set is an unordered collection of elements
 
 ∈: is in, exists in
 
-    x ∈ A  means?
+    x ∈ A  means? x exists (is an element in) set A
 
-    x ∉ A  means?
+    x ∉ A  means? x does not exist (is not an element in) set A
 
 
 
@@ -202,14 +222,16 @@ Example: A = {1,4,7,11,20}
 
 - Common sets in math:
 
-    ℕ: 
-    ℤ: 
-    ℚ: 
-    ℝ: 
-    ℂ: 
-    ∅: 
+    ℕ: natural numbers (integers 1 and bigger)
+    ℤ: whole numbers (all integers)
+    ℚ: rational numbers (written as a fraction)
+    ℝ: real numbers (can be represented on the number line)
+    ℂ: complex numbers (can be written as a + bi)
+    ∅: empty set, {}
 
 ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
+
+⊂: subset 
 
 ////////////////////////////////////
 
@@ -223,23 +245,33 @@ Set builder notation.
 
 {x: x ∈ ℕ, 5 ≤ x ≤ 10}
 
+{5,6,7,8,9,10}
+
 
 
 {k : k is a letter in "abracadabra"}
 
+{a, b, c, r, d}
 
 
 {x : x = 2k,  k ∈ ℕ}
+all positive evens
+{2, 4, 6, etc.}
 
 
 
 {n : n = k^2, k ∈ Z}
-
+perfect squares 
+{0, 1, 4, 9, ...}
 
 
 {n : n = 3a + 1, a ∈ ℕ, 1 ≤ a ≤ 4}
 
+{ 4, 7, 10, 13 }
 
+//////////////////////////////////////
+
+<-- stopped here, will continue Thursday
 
 //////////////////////////////////////
 
