@@ -51,8 +51,8 @@ Write each statement in English. Is each one true or false?
 
 ∀ x ¬Wings(x)
 
-
-
+all animals do not have wings
+false - bat and falcon do have wings
 
 ///
 
@@ -82,9 +82,9 @@ Write each statement in English. Is each one true or false?
 
 /////////////////
 
-For all: usually connect with...
+For all: usually connect with... implies
 
-There exists: usually connect with...
+There exists: usually connect with... and 
 
 ////////////////////////////////////////////
 
@@ -106,25 +106,27 @@ Translate to predicate logic and evaluate:
 
 CIS200 is a CS course with a lab
 
-
+IsCS(CIS200) ^ HasLab(CIS200) 
 
 //
 
 Not all CS courses have a lab
 
-
+¬(∀ x (IsCS(x) -> HasLab(x)))
 
 //
 
 There is a non-CS course with a lab
 
+∃ x (!IsCS(x) ^ HasLab(x))
 
+true: PHYS213
 
 //
 
 No math course has a lab
 
-
+∀ x !(IsMath() -> HasLab())
 
 //
 
@@ -152,21 +154,28 @@ What do these mean in English? Are they true?
 
 ∀ n ∃ m (n^2 < m)
 
+for all numbers, its square is less than some other number
+the square of every integer is less thatn some other integer 
 
+true - whatever the square is, pick a number bigger than it
 
 
 ∀ x ∃ y (x == y^2)
 
+for all numbers x there is a y^2 that is the same 
+all integers are perfect squares
 
+false - not every int is a perfect square 5 
 
 ∀ n ∃ m (n^2 == m)
 
-
+all perfect squares are integers
 
 
 ∃ m ∀ n (n^2 == m)
 
-
+there is one number that is the square of all other numbers
+doesn't make sense
 
 
 /////////////////////////
@@ -180,7 +189,7 @@ Write the following in predicate logic (Domain: ℤ):
 
 The sum of two negative integers is negative
 
-
+A x V y (x <0 )
 
 
 The difference of two positive integers is
@@ -208,10 +217,10 @@ Equivalence: DeMorgan's law (part 1).
 suppose our domain is k1 through kn
 
 
-¬(∃ x P(x)) is  equivalent to...
-    by DeMorgan's: 
+¬(∃ x P(x)) is  equivalent to... !(p(k1) || P(k2) ... p(kn))
+    by DeMorgan's: !P(k1) & 
 
-which is? 
+which is? ∀ x (¬P(x))
 
 
 /////////////////////////
@@ -227,7 +236,7 @@ Equivalence: DeMorgan's law (part 2).
 
 suppose our domain is k1 through kn
 
-¬(∀ x P(x)) is equivalent to...
+¬(∀ x P(x)) is equivalent to... and statement 
     by DeMorgan's:
 
 
