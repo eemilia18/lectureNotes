@@ -16,20 +16,23 @@ Today:
 
 Reminder: set builder notation
 
-{x : conditions}
+{x : conditions}  //like a foreach loop 
 
 
 {x : x ∈ ℤ, x^2 <= 25}
 
+    {0, 1, 2, 3, 4, 5}
 
+{n : x = 3a + 1, a ∈ ℕ, 1 ≤ a ≤ 4}
 
-{n : n = 3a + 1, a ∈ ℕ, 1 ≤ a ≤ 4}
-
-
+    {}
 
 {x : n = 2k+5m; k,m ∈ ℕ; 1 ≤ k ≤ 3; 3 ≤ m ≤ 4;}
 
+k: 1,2,3
+m: 3,4
 
+{17, 22, 19, 24, 21, 26}
 
 //////////////////////////////
 
@@ -38,19 +41,19 @@ Describe these sets in set builder notation
 
 {5,10,15}
 
-
+    {x : x = 5k, k ∈ ℕ, k <= 3}
 
 {CIS 115, CIS 116, CIS 200, CIS 300, CIS 301}
 
-
+    {x : x is a CIS course and x is in the CIS minor}
 
 {2,4,8,16,32}
 
-
+    {x : x = 2^k, k ∈ ℕ, k <= 5}
 
 {13, 19, 25, 31, 37, 43}
 
-
+    {x : x = 7 +6k, k ∈ ℕ, k <= 6}
 
 ///////////////////////////////////////
 ∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
@@ -60,16 +63,16 @@ Describe these sets in set builder notation
 Set union, ⋃
 
 The union of the sets A and B, written A ⋃ B, is the set
-of all elements....
+of all elements.... its in at least one of the sets basically OR
 
 
 How could we express in set builder notation?
 
-A ⋃ B = ?
+A ⋃ B = {x : x ∈ A ⋁ x ∈ B}
 
 
 Show as a Venn diagram.
-
+    whole thing 
 //////////////////////////////////////
 ⋃ ⋂ ⋁ ⋀ ∈ ∉
 ///////////////////////////////////////
@@ -77,16 +80,16 @@ Show as a Venn diagram.
 Set intersection, ⋂
 
 The intersection of the sets A and B, written A ⋂ B, is the set
-of all elements that are...
+of all elements that are... In both A and B
 
 
 How could we express in set builder notation?
 
-A ⋂ B = ?
+A ⋂ B = {x : x ∈ A ⋀ x ∈ B}
 
 
 Show as a Venn diagram.
-
+    just the intersection
 ///////////////////////////////////////
 
 Set difference, -
@@ -94,16 +97,16 @@ Set difference, -
 / or \ (means the same thing)
 
 The difference between the sets A and B, written A - B, 
-    is the set of all elements...
+    is the set of all elements... in A but not in B
 
 
 How could we express in set builder notation?
 
-A - B = ?
+A - B = {x : x ∈ A ⋀ x ∉ B}
 
 
 Show as a Venn diagram.
-
+    shade just A no overlap
 //////////////////////////////////////
 ⋃ ⋂ ⋁ ⋀ ∈ ∉
 ///////////////////////////////////////
@@ -113,10 +116,10 @@ B = {2,3,4,5,6,7}
 
 Find:
 
-A ⋃ B = ?
-A ⋂ B = ?
-A - B = ?
-B - A = ?
+A ⋃ B = {1,2,3,4,5,6,7,10,11,12}
+A ⋂ B = {3,7}
+A - B = {1,10,11,12}
+B - A = {2,4,5,6}
 
 
 /////////////////
@@ -133,24 +136,21 @@ Draw a Venn diagram for (A ⋂ B) − C
 
 ///////////////////////////////////////
 
-How does A - B relate to A ⋂ B?
-
-
-
 What do we know if A ⋂ B = A ⋃ B?
 
-
+A = B
 
 
 What do we know if A - B = A?
 
-
+A ⋂ B = null 
 
 
 
 What do we know if A - B = B - A?
 
-
+A = B
+(the difference would be the empty set)
 
 //////////////////
 
@@ -170,7 +170,7 @@ B = {1,3,5,8}
 
 --> is A a subset of B? 
 
-
+No beacuse the 4 is in A but not in B
 
 
 
@@ -181,6 +181,7 @@ B = {1,3,5,8}
 
 --> is A a subset of B? 
 
+Yes all the elements in A are also in B
 
 //////////////////////////////////
 
@@ -192,9 +193,10 @@ B = {1,3,5,8}
 
 Quantifiers - helps describe all or some elements in a set
 
-    ∀ - ?
+    ∀ - universal quantifier, "for all", "all"
 
-    ∃ - ?
+    ∃ - existential quantifier, "there exists", 
+        "some", "at least one", 
 
 
 
@@ -202,7 +204,7 @@ Can we define that set A is a subset of set B using quantifiers?
 
 A ⊆ B means ...
 
-
+∀ x ∈ A → x ∈ B
 
 
 How could we define that set A equals set B using quantifiers?
@@ -242,16 +244,16 @@ A = {x : x ∈ ℕ ⋀ x^2 ≥ 25 }
 
 
 
-P(x) = ?
+P(x) = x : x ∈ ℕ ⋀ x^2 ≥ 25
 
 What are these saying? Are they true?
 
-P(2) = 
-P(-6) =  
-P(10) = 
+P(2) = false
+P(-6) =  false
+P(10) = true
 
 
-
+means 10 is in the set 2 and -10 are not
 
 
 //////////////////////////////////////
@@ -271,6 +273,10 @@ How would we prove this in propositional logic?
 
 What propositional atoms? What sequent?
 
+p : All humans are mortal
+q : Socrates is a human
+r : Socrates is mortal
+
 
 
 
@@ -284,11 +290,15 @@ individuals in a domain (a set)
 
 These claims will involve predicates and quantifiers
 
-Human(x)
-Mortal(x)
+domain: all living things
+
+Human(x) - wheather x is human 
+Mortal(x) - whether x is mortal
 
 
 ∀ x (Human(x) → Mortal(x))
+
+For all living things if that living this is human, then it is mortal 
 
 //////////////////
 
@@ -351,20 +361,26 @@ Write each statement in English. Is each one true or false?
 
 ∀ x (Bird(x) ⋀ Wings(x))
 
+all animals in my domain are birds and have wings 
 
+false - theres animals that aren't birds
 
 
 ///
 
 ∀ x (Bird(x) → Wings(x))
 
-
+true 
+(every animal either isn't a bird or is a bird with wings)
 
 ///
 
 ¬(∀ x Mammal(x))
 
+not (all animals are mammals)
+or: at least one animal is not a mammal 
 
+like a negation with demorgans law 
 
 ////
 
