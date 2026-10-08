@@ -1,0 +1,138 @@
+//Homework 5
+//1_sets.txt
+
+Here is a list of symbols that might be useful for pasting into problems:
+∈	∉
+∅
+⋂	⋃
+⊂   ⊆
+⋀	⋁
+ℕ   ℤ
+≠   ≤   ≥
+
+
+///
+
+1. Use set builder notation to describe the following sets:
+    a) {-24,-16,-8,0,8,16,24,32}
+
+        {x : x = 8k, k ∈ ℤ, -3 ≤ k ≤ 4}
+
+
+    b) {11,14,17,20,23, ...}
+
+        {x : x = 3k+2, k ∈ ℕ, k ≥ 2}
+
+
+///
+
+2. Suppose we have two sets: A = {-8,-2,0,1,4,17,25,37} and B = {-5,-2,1,2,5,8,17,22,37,40,44}
+
+    a) A ⋂ B = ? {-2,1,17,37}
+
+
+
+
+    b) A ⋃ B = ? {-8,-5,-2,0,1,2,4,5,8,17,22,25,37,40,44}
+
+
+
+
+    c) A - B = ? {-8,0,4,25}
+
+
+
+
+    d) B - A = ? {-5,2,5,8,22,40,44}
+
+
+
+
+///
+
+3. Describe the following sets by listing all its elements (put brackets, { }, around each
+    list of elements):
+
+    a) {x : x ∈ Z, |4x| < 25}
+
+        {-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6}
+
+
+    b) {x : x = 2k, k ∈ ℕ, k ≤ 9} ⋂ {x : x = n^2, n ∈ ℤ, -4 ≤ n ≤ 4}
+
+        {x : x = 2k, k ∈ ℕ, k ≤ 9}: {2,4,6,8,10,12,14,16,18}
+        {x : x = n^2, n ∈ ℤ, -4 ≤ n ≤ 4}: {0,1,4,9,16}
+
+        Intersection: {4,16}
+
+
+    c) {x : x = 2k, k ∈ ℕ, k ≤ 9} ⋃ {x : x = n^2, n ∈ ℤ, -4 ≤ n ≤ 4}
+
+        {0,1,2,4,6,8,9,10,12,14,16,18}
+
+
+    d) {x : x is an odd-numbered month with 31 days}
+
+        {January, March, May, July}
+
+
+///
+
+4. Using the simplest notation possible, describe the elements in the set:
+
+    {x : x ∈ ℤ, x ≥ -5} ∪ {x : x ∈ ℤ, x ≤ 7}
+
+
+    Answer: the set of all integers (ℤ).
+
+    The first set contains all integers greater than or equal to 5,
+    and the second set contains all integers less than or equal to 7.
+
+    The union of these two sets is ALL integers, since the first set goes to positive
+    infinity and the second set goes to negative infinity (and they overlap in the middle).
+
+
+
+///
+
+5. Suppose A ⋃ B = A for two sets A and B. What does that tell us about A and B? Explain.
+
+We know that B ⊆ A. 
+
+If A ⋃ B = A, then we know there are no additional elements in A ⋃ B that weren't also in A. 
+This tells us that B doesn't contain any elements that weren't also in A. Thus B ⊆ A.
+
+
+
+
+///
+
+6. Suppose A ⋂ B = A for two sets A and B. What does that tell us about A and B? Explain.
+
+We know that A ⊆ B. 
+
+Since A ⋂ B contains only elements that are in both A and B, if A ⋂ B = A 
+then every element in A is also in B. Thus A ⊆ B.
+
+
+
+
+///
+
+7. Suppose A, B, and C are sets.
+    a) If A ⋃ C = B ⋃ C, must A = B? Either provide a counterexample (with specific sets
+        for A, B, and C) or explain why this must be true.
+
+
+    No. As a counterexample, suppose A = {1,2}, B = {1}, and C = {2}. Here we have that
+    A ⋃ C = B ⋃ C = {1,2}, but A ≠ B.
+
+
+///
+
+    b) If A ⋂ C = B ⋂ C, must A = B? Either provide a counterexample (with specific sets
+        for A, B, and C) or explain why this must be true.
+
+
+    No. As a counterexample, suppose A = {1,2,3}, B = {1,2,4}, and C = {1,2}. Here we have that
+    A ⋂ C = B ⋂ C = {1,2}, but A ≠ B.

@@ -44,47 +44,61 @@ Write each statement in English. Is each one true or false?
 
 ¬(∀ x (Carnivore(x) → Mammal(x)))
 
+not all carnivores are mammals
 
+true: falcon 
 
 
 ///
 
 ∀ x ¬Wings(x)
 
-
+all animals don't have wings 
+false - bat and falcon definitely do have wings
 
 
 ///
 
 ¬(∃ x Fish(x))
 
+it's not the case that some animal is a fish
+there doesn't exist a fish 
 
+false - salmon
 
 ///
 
 ∃ x ¬(Fish(x))
 
+some animal is not a fish
 
+true - bat
 
 ///
 
 ¬(∃ x (Mammal(x) ⋀ Wings(x)))
 
 
+there isn't a mammal that has wings
 
+false - bat IS a mammal with wings
 
 ///
 
 ∃ x (Fish(x) → Bird(x))
 
+there is an animal and if that animal is a fish then it is a bird
+
+(Fish(bat) → Bird(bat)) V (Fish(lion) → Bird(lion)) V ...
 
 
+true - we can find an animal that isn't a fish
 
 /////////////////
 
-For all: usually connect with...
+For all: usually connect with...→ 
 
-There exists: usually connect with...
+There exists: usually connect with...⋀
 
 ////////////////////////////////////////////
 
@@ -102,41 +116,73 @@ Predicates:
 
 Translate to predicate logic and evaluate:
 
-//
+/////////////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+/////////////////////////
 
 CIS200 is a CS course with a lab
 
+IsCS(CIS200) ⋀ HasLab(CIS200)
+
+
+IsCS(HasLab(CIS200)) - NO! HasLab(..) returns a boolean
 
 
 //
 
 Not all CS courses have a lab
 
+¬(∀ x (IsCS(x) → HasLab(x)))
 
+true - CIS 301 doesn't have a lab
 
 //
 
 There is a non-CS course with a lab
 
+∃ x (¬IsCS(x) ⋀ HasLab(x))
 
+true: PHYS213 has a lab
 
 //
 
 No math course has a lab
 
+CIS301
 
+
+Not this one:
+∀ x ¬(IsMath(x) → HasLab(x))
+(this statement is false if our domain contains ANY non-math courses,
+as IsMath(x) → HasLab(x) would be true for that course, and so 
+¬(IsMath(x) → HasLab(x)) would be false.
+
+
+
+Correct answer: ∀ x (IsMath(x) → ¬HasLab(x)) 
+    This is saying that I promise that IF I have a math course 
+    then it doesn't have a lab (and I'm making that promise for every class)
+
+Also correct: ¬(∃ x (IsMath(x) ⋀ HasLab(x)))
+
+(see Ed Discussion thread for more details)
 
 //
 
 There is a CS course with more hours than a math course
 
+∃ x ∃ y (IsCS(x) ⋀ IsMath(y) ⋀ MoreHours(x, y))
 
+
+∃ x ∃ y (MoreHours(IsCS(x), IsMath(y))) - NO! wouldn't compile
 
 //
 
 There is a CS course with more hours than any math course
 
+∃ x ∀ y (IsCS(x) ⋀ IsMath(y) → MoreHours(x, y))
 
+∃ x (IsCS(x) ⋀ ∀ y (IsMath(y) → MoreHours(x, y)))
 
 --> Where to put the quantifiers?
 
@@ -152,21 +198,33 @@ What do these mean in English? Are they true?
 
 ∀ n ∃ m (n^2 < m)
 
+for all numbers, its square is less than some other numbers
+the square of every integer is less than some other integer 
 
+true - whatever the square is, pick a number one bigger than it
 
 
 ∀ x ∃ y (x == y^2)
 
+for all numbers x there is a y^2 that is the same 
+really saying: all integers are perfect squares
+
+false - 5 is not a perfect square 
 
 
 ∀ n ∃ m (n^2 == m)
 
+for all numbers, there is a number that equals the first number squared
+All perfect squares are integers
+The square of every integer is also an integer 
 
+(integers are closed under multiplication - true)
 
 
 ∃ m ∀ n (n^2 == m)
 
-
+there is ONE number (the same number) that is the square of all other numbers
+(NO. doesn't make sense.)
 
 
 /////////////////////////
@@ -180,14 +238,20 @@ Write the following in predicate logic (Domain: ℤ):
 
 The sum of two negative integers is negative
 
+∀ x ∀ y ((x < 0 ⋀ y < 0) → x+y < 0)
 
+true - adding two negatives would become more negative
 
 
 The difference of two positive integers is
 not necessarily positive
 
+∃ x ∃ y (x > 0 ⋀ y > 0 ⋀ x-y <= 0)
 
 
+true:
+counterexample: x = 3, y = 5, x-y is not positive
+x = -5, y = 2, x - y is not positive (NOT a counterexample)
 
 /////////////////////////
 
@@ -208,10 +272,10 @@ Equivalence: DeMorgan's law (part 1).
 suppose our domain is k1 through kn
 
 
-¬(∃ x P(x)) is  equivalent to...
-    by DeMorgan's: 
+¬(∃ x P(x)) is  equivalent to...¬(P(k1) V P(k2) V ... P(kn))
+    by DeMorgan's: ¬P(k1) ^ ¬P(k2) ^ ... ^ ¬P(kn)
 
-which is? 
+which is? ∀ x (¬P(x))
 
 
 /////////////////////////
@@ -227,8 +291,8 @@ Equivalence: DeMorgan's law (part 2).
 
 suppose our domain is k1 through kn
 
-¬(∀ x P(x)) is equivalent to...
-    by DeMorgan's:
+¬(∀ x P(x)) is equivalent to...¬(P(k1) ^ P(k2) ^ ... ^ P(kn))
+    by DeMorgan's: ¬P(k1) V ... V ¬P(kn)
 
 
 ...which is?
@@ -266,12 +330,21 @@ Domain: students
 
 All prize-winners were 5th graders
 
-Translation: 
+Translation: ∀ x (wonPrize(x) → in5th(x))
 Negation: 
+¬(∀ x (wonPrize(x) → in5th(x)))
+∃ x ¬(wonPrize(x) → in5th(x))
+∃ x ¬(¬wonPrize(x) ⋁ in5th(x))
 
-Translation of negation: 
+∃ x (wonPrize(x) ⋀ ¬in5th(x))
 
-///
+Translation of negation: there's a student that won a prize and isn't in 5th grade
+
+///////////////////
+
+<-- stopped here, will continue on Thursday
+
+///////////////////
 
 A 5th grade prize winner isn't friends with anyone
 
@@ -363,6 +436,8 @@ This will insert the statement:
 
 
 You can also edit the keyboard shortcuts for these templates
+
+Or you can type "All" or "Exists"
 
 ////////////////////////////////
 

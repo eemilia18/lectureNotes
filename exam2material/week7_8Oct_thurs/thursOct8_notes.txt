@@ -1,0 +1,375 @@
+HW 6 due Tuesday, October 13
+
+Exam 2 is Thursday, October 15
+
+
+/////////////////////////////////////
+
+Ed Discussion on "no math course has a lab"
+
+∀ x ¬(IsMath(x) → HasLab(x))
+    IsMath(x) → HasLab(x) is automatically true for a non-math course
+    so ¬(IsMath(x) → HasLab(x)) is false for a non-math courses
+    so the whole for-all is false if our domain has any non-math course
+
+
+∀ x (IsMath(x) → ¬HasLab(x))
+    correct translation. Only makes promise about math courses -- for all of those,
+    they don't have a lab.
+
+
+/////////////////////////////////////
+
+Quiz clarification:
+
+Suppose we have three predicates in the domain of restaurants:
+
+Burgers(x) - restaurant x serves burger
+Steak(x) - restaurant x serves steak
+Partners(x, y) - restaurant x is partners with restaurant y (**replaces "Newer")
+What is the best translation to English for the following predicate logic statement?
+
+    ∀ x ∃ y (Steak(x) → Burgers(y) ∧ Partners(x, y))
+
+
+All steak restaurants are partners with a burger restaurant 
+
+vs
+
+A burger restaurant is partners with all steak restaurants
+
+
+Ana's: burgers, partners with Longhorn's
+Longhorn's: steak, partners with Ana's 
+Tallgrass: steak, partners with Freddy's
+Freddy's: burgers, partners with Tallgrass
+
+--> Evaluate the two statements
+
+
+--> The "Newer" predicate on the quiz behaved differently because it was *transitive*
+
+
+////////////////////////////////
+
+Today: 
+- more with negation in predicate logic
+- deduction in predicate logic
+
+/////////////////////////////////
+
+Negation example:
+
+Domain: students
+    in5th(x): student x is in 5th grade
+    wonPrize(x): student x won a prize
+    friendsWith(x, y): student x is friends with student y
+
+
+A 5th grade prize winner isn't friends with anyone
+
+translation: 
+
+negate:
+
+
+
+translation of negation: 
+
+
+////////////////////////////////
+
+
+Arguments in predicate logic
+
+Set of premises
+Conclusion
+
+Argument is VALID: regardless of domain,
+    whenever all the premises are true,
+    then the conclusion is also true
+
+Argument is INVALID: we can find a domain where
+    all the premises are true but the conclusion is false
+
+
+
+Examples -- are the following arguments valid?
+
+///
+
+Premises: ∀ x (P(x) → Q(x)), ∃ x P(x)
+Conclusion: ∃ x Q(x)
+
+Valid or not? 
+
+
+///
+
+Premises: ∀ x P(x) : everyone in my domain is P-ish
+Conclusion: ∃ x P(x): there is someone in domain who is P-ish
+
+Valid or not? 
+
+/////////////////////////////////
+
+Proofs in predicate logic.
+
+- want to formalize the kind of reasoning from above
+
+- want valid inference rules that do NOT depend on the domain
+    (there is no way to do the equivalent of a
+    "truth table proof" in predicate logic...
+        there are infinitely many domains!)
+
+- add inference rules on quantifiers to our deduction rules
+
+
+////////////////////////////////
+
+Writing predicate logic statements in Logika
+
+In Logika, ∀ x P(x) is written as:
+
+    ∀ ((x: T) => P(x))
+
+
+
+In Logika, ∃ x P(x) is written as:
+
+    ∃ ((x: T) => P(x))
+
+
+
+--> what is "T"?
+
+
+Settings->Command Palette->Tasks (run task)->Sireum slang template->
+    Insert a for-all quantification
+
+This will insert the statement:
+
+∀((ID: TYPE) => CLAIM)
+
+
+
+(similarly, insert a there exists statement)
+
+
+You can also edit the keyboard shortcuts for these templates
+
+Or you can type "All" or "Exists"
+
+////////////////////////////////
+
+When you have homework or we do examples, the proof files
+will look like this:
+
+// #Sireum #Logika
+
+import org.sireum._
+import org.sireum.justification._
+import org.sireum.justification.natded.prop._
+import org.sireum.justification.natded.pred._
+
+@pure def ProofName[T](pred1: T => B @pure, pred2: T => B @pure,
+                ..., indiv1: T, indiv2: T, ...): Unit = {
+    Deduce(
+        (comma-separated list of premises)
+            ⊢
+        (conclusion)
+
+        Proof(
+            //the actual proof steps go here
+        )
+    )
+}
+
+///////////////////////////////
+
+For-all elimination (AllE):
+
+           ∀ ((x: T) => P(x))
+AllE[T]:  ---------------------
+                   P(v)
+
+//where v is a particular individual in the domain
+//(i.e, v has type T)
+
+
+Idea:
+
+- if we know that a statement is true for ALL individuals in
+our domain
+
+
+...then what would we know about a specific individual
+in that domain?
+
+///////////////////////////////
+
+Syntax:
+
+(
+    ∀ ((x: T) => Human(x))
+)
+⊢
+( Human(Socrates) )
+
+Proof(
+    1 ( ∀ ((x: T) => Human(x)) )    by Premise,
+    2 Human(Socrates)               by ???
+)
+
+Note: This assumes "Socrates" and "Human" were both parameters
+to our proof function:
+
+
+@pure def Example[T](Human: T => B @pure, Socrates: T)
+
+
+
+///////////////////////////////
+
+Example (all1.sc)
+
+
+∀ x (inCIS301(x) → takenCIS200(x)), inCIS301(bob) ⊢ takenCIS200(bob)
+
+
+//////////////////////////////
+
+For-all introduction (AllI).
+
+Idea:
+
+- Suppose we show statement holds for some arbitrary individual
+    in our domain
+- That individual could have been anyone!
+
+...what can we say about that statement for all individuals in
+    our domain?
+
+
+
+///
+
+Rule definition:
+
+            Let ( (a: T) => SubProof(
+                ...
+                P(a)
+            )),
+AllI[T] : -------------------------------
+                 ∀ ((x: T) => P(x))
+
+
+//"a" is an unused, "fresh" individual
+
+
+
+Rule syntax:
+
+4 Let ( (a: T) => SubProof(
+    ...
+    P(a)
+)),
+10 ( ∀ ((x: T) => P(x)) ) by AllI[T](4)
+
+
+//a could be any (fresh) individual name
+
+
+///////////////////////////////////
+
+Example:
+
+Prove these statements are equivalent:
+
+∀ x (P(x) ⋀ Q(x))           (∀ x P(x)) ⋀ (∀ x Q(x))
+
+
+all2.sc
+
+///////////////////////////////////
+
+in-class quiz
+
+///////////////////////////////////
+
+Suppose you are trying to prove this conclusion:
+
+∀ ((x: T) => (P(x) ⋀ Q(x) → ¬R(x)) )
+
+How to construct?
+
+
+
+
+////////////////////////////
+
+
+Are these statements equivalent?
+
+∀ x (P(x) ⋁ Q(x))           (∀ x P(x)) ⋁ (∀ x Q(x))
+
+could prove:
+premise: (∀ x P(x)) ⋁ (∀ x Q(x))
+conclusion: ∀ x (P(x) ⋁ Q(x)) 
+
+//////////////////////////////////////////
+
+Idea behind exists-introduction (ExistsI):
+
+If we find ONE individual in a domain where a statement holds
+
+...then THERE EXISTS an individual in the domain where the
+    statement holds
+
+
+
+///
+
+Rule definition:
+
+                  P(v)
+ExistsI[T]: ---------------------
+              ∃ ((x: T) => P(x) )
+
+//v is some individual of type T
+
+
+//////////////////////////////////////////
+
+Rule syntax:
+
+
+( Human(Socrates) ) ⊢ ( ∃ ((x: T) => Human(x) ))
+Proof(
+    1 ( Human(Socrates) ) by Premise,
+    2 ( ∃ ((x: T) => Human(x)) )  by ExistsI[T](1)
+)
+
+(assume "Socrates" was a parameter of type T)
+
+/////////////////////////////////////////
+
+Bigger example (exists1.sc):
+
+(
+    ∀ ((x: T) => (Human(x) → Mortal(x))),
+    Human(Socrates)
+)
+⊢ ( ∃ ((x: T) => Mortal(x) ))
+
+
+/////////////////////////////
+
+
+Putting things together - bothQuant.sc
+
+///////////////////////////
+
+Next time:
+- more natural deduction with predicate logic
+- review for exam 2

@@ -1,0 +1,96 @@
+//Homework 5
+//2_predicates.txt
+
+
+We have the following set of students:
+
+--------------------------------------------------------|
+Name    | Major     | KS resident   | Lives on-campus   |
+--------------------------------------------------------|
+Bob     | PHYS      | True          | False             |
+--------------------------------------------------------|
+Ava     | ECE       | True          | True              |
+--------------------------------------------------------|
+Jane    | CS        | False         | False             |
+--------------------------------------------------------|
+Steve   | MATH      | True          | True              |
+--------------------------------------------------------|
+Marie   | CS        | False         | True              |
+--------------------------------------------------------|
+Jack    | ECE       | True          | False             |
+--------------------------------------------------------|
+
+And the following predicates over our set of students:
+
+IsCS(x) : whether student x is a CS major
+
+InKS(x): whether student x is a Kansas resident
+
+Campus(x): whether student x lives on campus
+
+
+
+Consider the following predicate logic statements:
+
+1) ∀ x (¬InCS(x))
+
+    a) Express the statement in words
+
+        All students are not CS majors
+
+
+    b) Is the statement true or false in our set of students? Explain.
+
+        False -- Jane is a CS major.
+
+///
+
+2) ∃ x (¬Campus(x) ⋀ InKS(x))
+
+    a) Express the statement in words
+
+        There is a student who doesn't live on campus and is a Kansas resident.
+
+
+    b) Is the statement true or false in our set of students? Explain.
+
+        True -- Bob lives off campus and is a Kansas resident.
+
+///
+
+3) ∀ x (¬Campus(x) → InCS(x))
+
+    a) Express the statement in words
+
+        All students who live off campus are CS majors.
+        (Or, all students who don't live on campus are CS majors)
+
+    b) Is the statement true or false in our set of students? Explain.
+
+        False -- Bob lives off campus and is a PHYS major
+
+///
+
+4) ¬(∃ x (Campus(x) ⋀ InCS(x)))
+
+    a) Express the statement in words
+
+        There does not exist a student who both lives on campus and is a CS major.
+
+    b) Is the statement true or false in our set of students? Explain.
+
+        False -- Marie lives on campus and is a CS major.
+
+
+///
+
+5) ¬(∀ x (InCS(x) → Campus(x)))
+
+   a) Express the statement in words
+
+    Not all students who are CS majors also live on campus.
+
+
+   b) Is the statement true or false in our set of students? Explain.
+
+   True -- Jane is a CS major who lives off campus.
