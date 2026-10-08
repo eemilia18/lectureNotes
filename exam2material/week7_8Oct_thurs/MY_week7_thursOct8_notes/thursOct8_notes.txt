@@ -68,13 +68,18 @@ Domain: students
 
 A 5th grade prize winner isn't friends with anyone
 
-translation: 
+translation: ∃ x ∀ y (in5th(x) ^ wonPrize(x)  )
 
-negate:
+negate: 1. atart with negation out front
+        2. switch for all and there exists 
+        3. bring in negation to statements 
+        4. turn implies into OR statement lhs then turns negated 
+        5. then negate whole thing and turn OR to AND 
 
 
 
-translation of negation: 
+
+translation of negation: all 5th grade prize winners have a friend 
 
 
 ////////////////////////////////
@@ -98,11 +103,11 @@ Examples -- are the following arguments valid?
 
 ///
 
-Premises: ∀ x (P(x) → Q(x)), ∃ x P(x)
-Conclusion: ∃ x Q(x)
+Premises: ∀ x (P(x) → Q(x)), ∃ x P(x) : everyone in domain is P-ish
+Conclusion: ∃ x Q(x) : there is someone in domain who is P-ish
 
 Valid or not? 
-
+        not true if domain is empty 
 
 ///
 
@@ -133,7 +138,7 @@ In Logika, ∀ x P(x) is written as:
 
     ∀ ((x: T) => P(x))
 
-
+=> is like equlas and greater than
 
 In Logika, ∃ x P(x) is written as:
 
@@ -141,7 +146,7 @@ In Logika, ∃ x P(x) is written as:
 
 
 
---> what is "T"?
+--> what is "T"? my domain
 
 
 Settings->Command Palette->Tasks (run task)->Sireum slang template->
@@ -151,7 +156,7 @@ This will insert the statement:
 
 ∀((ID: TYPE) => CLAIM)
 
-
+All or Exists don't change to symbol but still work 
 
 (similarly, insert a there exists statement)
 
@@ -218,7 +223,7 @@ Syntax:
 
 Proof(
     1 ( ∀ ((x: T) => Human(x)) )    by Premise,
-    2 Human(Socrates)               by ???
+    2 ( Human(Socrates) )              by AllE[T](1), 
 )
 
 Note: This assumes "Socrates" and "Human" were both parameters
