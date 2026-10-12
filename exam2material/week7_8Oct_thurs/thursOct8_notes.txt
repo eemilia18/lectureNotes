@@ -14,8 +14,8 @@ Ed Discussion on "no math course has a lab"
 
 
 ∀ x (IsMath(x) → ¬HasLab(x))
-    correct translation. Only makes promise about math courses -- for all of those,
-    they don't have a lab.
+    correct translation. Only makes promise about math courses -- 
+    for all of those, they don't have a lab.
 
 
 /////////////////////////////////////
@@ -26,8 +26,9 @@ Suppose we have three predicates in the domain of restaurants:
 
 Burgers(x) - restaurant x serves burger
 Steak(x) - restaurant x serves steak
-Partners(x, y) - restaurant x is partners with restaurant y (**replaces "Newer")
-What is the best translation to English for the following predicate logic statement?
+Partners(x, y) - restaurant x is partners with restaurant y 
+    (**replaces "Newer")
+What is the best translation to English for the following?
 
     ∀ x ∃ y (Steak(x) → Burgers(y) ∧ Partners(x, y))
 
@@ -47,7 +48,8 @@ Freddy's: burgers, partners with Tallgrass
 --> Evaluate the two statements
 
 
---> The "Newer" predicate on the quiz behaved differently because it was *transitive*
+--> The "Newer" predicate on the quiz behaved differently because 
+    it was *transitive*
 
 
 ////////////////////////////////
@@ -68,13 +70,19 @@ Domain: students
 
 A 5th grade prize winner isn't friends with anyone
 
-translation: 
+**** NOTE: this is a corrected version of what we did in class,
+    which mistakenly used an IMPLIES instead of an AND in the translation
+
+
+translation: ∃ x ∀ y (in5th(x) ∧ wonPrize(x) ∧ ¬friends(x, y)) 
 
 negate:
+¬(∃ x ∀ y (in5th(x) ∧ wonPrize(x) ∧ ¬friends(x, y)))
+∀ x ∃ y ¬((in5th(x) ∧ wonPrize(x)) ∧ ¬friends(x, y))
+∀ x ∃ y (¬(in5th(x) ∧ wonPrize(x)) ⋁ friends(x, y))
+∀ x ∃ y (in5th(x) ∧ wonPrize(x) → friends(x, y))
 
-
-
-translation of negation: 
+translation of negation: all 5th grade prize winners have a friend
 
 
 ////////////////////////////////
@@ -101,7 +109,7 @@ Examples -- are the following arguments valid?
 Premises: ∀ x (P(x) → Q(x)), ∃ x P(x)
 Conclusion: ∃ x Q(x)
 
-Valid or not? 
+Valid or not? yes
 
 
 ///
@@ -109,7 +117,7 @@ Valid or not?
 Premises: ∀ x P(x) : everyone in my domain is P-ish
 Conclusion: ∃ x P(x): there is someone in domain who is P-ish
 
-Valid or not? 
+Valid or not? not true if domain is empty
 
 /////////////////////////////////
 
@@ -141,7 +149,7 @@ In Logika, ∃ x P(x) is written as:
 
 
 
---> what is "T"?
+--> what is "T"? my domain
 
 
 Settings->Command Palette->Tasks (run task)->Sireum slang template->
@@ -218,7 +226,7 @@ Syntax:
 
 Proof(
     1 ( ∀ ((x: T) => Human(x)) )    by Premise,
-    2 Human(Socrates)               by ???
+    2 ( Human(Socrates) )           by AllE[T](1)
 )
 
 Note: This assumes "Socrates" and "Human" were both parameters
@@ -364,6 +372,10 @@ Bigger example (exists1.sc):
 
 
 /////////////////////////////
+
+<-- stopped here, will continue Tuesday
+
+////////////////////////////
 
 
 Putting things together - bothQuant.sc

@@ -1,0 +1,112 @@
+HW 6 is due tonight
+
+Exam 2 is Thursday, October 15 during class
+
+No new homework this week
+
+///////////////////////////////
+
+Top-level operators with quantifiers
+
+- officially, quantifiers should have the HIGHEST precedence, before any operators
+
+--> but Logika interprets them to have the LOWEST precedence (making them the top-level operator)
+
+
+I will use parentheses to be clear what precedence to use with quantifiers
+
+Top-level operators for:
+
+(∀ x P(x)) ⋀ (∀ x Q(x))
+∀ x (P(x) ⋁ Q(x))
+
+
+///////////////////////////////
+
+Today:
+- Some bigger problems with AllE, AllI, ExistsI
+- Review for Exam 2
+
+///////////////////////
+
+Reminder:
+
+AllE - when can we use?
+
+
+AllI - when do we use? idea?
+
+////////////////////////
+
+Bigger example: allBig.sc
+
+////////////////////////
+
+
+Putting things together: bothQuant.sc
+
+///////////////////////
+
+in-class quiz
+
+///////////////////////
+
+Exam 2:
+- Thursday, October 15 9:30-10:45
+- Closed notes, closed computers
+similar format as exam 1 
+
+- Natural deduction proofs in propositional logic, esp. with:
+    ImplyI, NegE, NegI, BottomE, PbC
+--> still expected to be familiar with all other rules
+--> may be more emphasis here than previous semesters,
+    as more of these rules are on Exam 2 than in the past
+
+Sets, including:
+    - set builder notation
+    - N (natural, all positive, starts at 1), Z (integers),
+            R (reals - includes whole numbers, fractions,
+            numbers with decimals)
+    - union, intersection, difference (-), subsets
+    - Venn diagrams
+    - general reasoning about sets
+
+Predicate logic statements, including:
+    - quantifiers
+    - interpreting predicate logic statements in English
+    - translating English statements to predicate logic
+    - evaluating predicate logic statements in a domain
+    - working with predicate logic statements involving sets
+        of numbers
+    - DeMorgan's laws
+    - negating predicate logic statements
+
+- Natural deduction proofs in predicate logic
+    using: AllE, AllI, ExistsI
+
+- Using natural deduction to prove two statements are equivalent
+
+
+
+--> what about predicate logic proof syntax?
+    don't care about getting all the ()
+    don't care about putting : T or [T]
+    in AllI subproof, be sure to name your random individual
+    can write ∀((x: T) => (P(x) -> Q(x))) like
+        ∀ x (P(x) -> Q(x))
+
+
+--> how to prepare?
+    do practice quizzes in Canvas
+    review homework solutions (they are posted)
+
+    get out paper
+    work through old homework problems
+    work through old lecture examples
+
+    do extra propositional logic examples in exam2_propExamples.txt
+
+
+///////////////////////////////////////
+
+Work through practice exam (will post solution after class)
