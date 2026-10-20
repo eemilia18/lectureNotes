@@ -41,9 +41,9 @@ Idea: we know a statement is true for *some* individual
 Create an alias for that anonymous individual
 
     Know: ∃ x P(x)
-    Assume? 
+    Assume? P(alias)
 
-    Goal ?
+    Goal ? reach a conclusion that doesn't rely on the name of the alias 
 
 
 
@@ -136,7 +136,7 @@ Proof tactics for predicate logic
     trying to prove a "there exists" statement with ∃?
 
         do I have that statement about a particular individual?
-
+            ExistsI
 
         could I use AllE for an individual with an all statement?
 
