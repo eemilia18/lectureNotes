@@ -1,0 +1,81 @@
+Here are some symbols, if needed
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ ℝ ℚ     ≠ ≤ ≥
+
+Domain: people
+    P(x): person x is a programmer
+    R(x): person x plays rugby
+    D(x): person x has a dog
+    M(x, y): person x is the manager of person y
+
+
+In each of the following problems:
+    - Express the statement in English, using the predicates above
+    - Negate the statement, so that:
+        - There is no negation to the left of a quantifier
+        - There is no negation of a parenthetical ( ) expression
+        - If your final negation contains a ∀ statement followed by an ⋁,
+                rewrite it to use → instead of ⋁
+    - Show your work for partial credit
+
+
+1) ∀ x (P(x) → D(x))
+
+Every programmer has a dog.
+
+Negation:
+¬(∀ x (P(x) → D(x)))
+∃ x ¬(P(x) → D(x))
+∃ x ¬(¬P(x) ⋁ D(x))
+∃ x (P(x) ⋀ ¬D(x))
+
+Answer: ∃ x (P(x) ⋀ ¬D(x))
+(Meaning: There is a programmer who doesn't have a dog.)
+
+///////////////////////////////////////////
+
+2) ∃ y (R(y) ⋀ ¬P(y))
+
+There is a person who plays rugby and is not a programmer.
+
+Negation:
+¬(∃ y (R(y) ⋀ ¬P(y)))
+∀ y ¬(R(y) ⋀ ¬P(y))
+∀ y (¬R(y) ⋁ P(y))
+∀ y (R(y) → P(y))
+
+Answer: ∀ y (R(y) → P(y))
+(Meaning: Everyone who plays rugby is a programmer.)
+
+///////////////////////////////////////////
+
+3) ∃ x ∃ y (D(x) ⋀ M(x, y))
+
+There is a person who owns a dog and is someone's manager.
+
+Negation:
+¬(∃ x ∃ y (D(x) ⋀ M(x, y)))
+∀ x ¬(∃ y (D(x) ⋀ M(x, y)))
+∀ x ∀ y ¬((D(x) ⋀ M(x, y))
+∀ x ∀ y (¬D(x) ⋁ ¬M(x, y))
+∀ x ∀ y (D(x) → ¬M(x, y))
+
+Answer: ∀ x ∀ y (D(x) → ¬M(x, y))
+(Meaning: Everyone who owns a dog is not a manager of anyone.)
+
+///////////////////////////////////////////
+
+4) ∀ x ∃ y (P(x) → M(x, y) ⋀ R(y))
+
+All programmers manage someone who plays rugby.
+
+Negation:
+¬(∀ x ∃ y (P(x) → M(x, y) ⋀ R(y)))
+∃ x ¬(∃ y (P(x) → M(x, y) ⋀ R(y)))
+∃ x ∀ y ¬(P(x) → M(x, y) ⋀ R(y)))
+∃ x ∀ y ¬(¬P(x) ⋁ (M(x, y) ⋀ R(y)))
+∃ x ∀ y (P(x) ⋀ ¬(M(x, y) ⋀ R(y)) 
+∃ x ∀ y (P(x) ⋀ (¬M(x, y) ⋁ ¬R(y)) <--- this is also an acceptable answer
+∃ x ∀ y (P(x) ⋀ (M(x, y) → ¬R(y))
+
+Answer: ∃ x ∀ y (P(x) ⋀ (M(x, y) → ¬R(y))
+(Meaning: There is a programmer and everyone they manage doesn't play rugby)

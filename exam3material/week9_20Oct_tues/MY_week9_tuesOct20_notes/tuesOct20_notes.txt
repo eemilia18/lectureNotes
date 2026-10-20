@@ -1,0 +1,234 @@
+Exam 2 discussion.
+
++2 to all scores
+
+High: 100/100 
+Average: 75/100
+
+A (90-100): 18 students
+B (80-89): 7 students
+C (70-79): 7 students
+D (60-69): 9 students
+F (below 60): 15 students (includes zeroes from students who didn't take it)
+
+Briefly discuss exam.
+
+Exam grades in Canvas
+- drops lowest among Exam 1, Exam 2, Exam 3,
+    *midterm equivalent from final*
+
+- what does this mean with the final exam?
+
+////////////////////////////////////////////////////
+
+HW 7 will be posted after class, due Tues Oct 27
+
+
+////////////////////////////////////////////////////
+
+Today:
+
+- exists elimination rule
+- proving DeMorgan's laws for quantifiers
+- soundness and completeness in predicate logic
+- begin mathematical induction, if time
+
+/////////////////////////////////
+
+Exists elimination - ExistsE[T]
+
+Idea: we know a statement is true for *some* individual
+Create an alias for that anonymous individual
+
+    Know: ∃ x P(x)
+    Assume? 
+
+    Goal ?
+
+
+
+Example:
+    Know: ∃ x (P(x) ^ Q(x) → R(x))
+    Assume? 
+
+
+
+
+If we can reach a conclusion that does NOT use that alias
+    ...we know that conclusion is valid, since
+    there WAS such an individual
+
+
+////////////////////////////////////////////
+
+Rule summary:
+
+                                 Let ((a: T) => SubProof(
+                                    Assume( P(a) ),
+            ∃((x: T) => P(x))       ...
+                                    Q
+                                 )),
+ExistsE[T]: ----------------------------------------------------
+                     Q
+
+"a" is our alias for the x where P(x) held
+"a" needs to be a "fresh" name (unused before)
+Q CANNOT include anything about "a"
+
+
+
+Syntax:
+
+1 ( ∃((x: T) => P(x)) )         by Justification,
+2 Let ((a: T) => SubProof(
+    3 Assume ( P(a) ),
+    ...
+    4 ( Q )                     by Justification
+)),
+5 ( Q )                         by ExistsE[T](1, 2)
+
+
+
+--> Think of ExistsE like OrE
+    ∃ x P(x) means...? 
+
+
+Use ExistsE in the SAME situations you would use OrE
+
+
+//////////////////////////////
+
+Examples:
+
+(exists1.sc)
+∀ x (Human(x) → Mortal(x)), ∃ x (Human(x)) ⊢ ∃ x (Mortal(x))
+
+
+
+///
+
+(exists2.sc)
+( ∃ x P(x) ) V ( ∃ x Q(x) ) ⊢ (∃ x (P(x) V Q(x)))
+
+
+
+////////////////////////////
+
+(in-class quiz)
+
+////////////////////////////
+
+Proof tactics for predicate logic
+
+- see if you can do anything right away with the premises
+    Which rules? 
+
+        Have an AND? 
+        have an implies at the LHS? 
+        Have a for all and an individual? 
+
+
+- look at top-level operator for what you are trying to prove
+    trying to prove a "for all" statement with ∀?
+
+
+
+    trying to prove a "there exists" statement with ∃?
+
+        do I have that statement about a particular individual?
+
+
+        could I use AllE for an individual with an all statement?
+
+
+        do I have a "there exists" statement as a claim?
+
+
+        do I have an OR statement as a claim?
+
+
+        really can't find anything? 
+            PbC
+
+
+
+    (if trying to prove AND, OR, NOT, IMPLIES - use same strategies as propositional logic)
+
+
+    -->when you are in a subproof?
+        1) What rule are you using in the SubProof?
+        2) What you are trying to prove afterwards
+        3) Goal for the end of the subproof
+
+
+    Unsure what to do?
+
+
+////////////////////////////////////////
+
+Proving DeMorgan's laws 
+
+//demorgan1.sc
+∀ x ¬P(x)       equivalent to       ¬(∃ x P(x))
+
+/////////////////////////////////////
+
+//demorgan2.sc
+∃ x ¬P(x)       equivalent to       ¬(∀ x P(x))
+
+////////////////////////////////////////
+
+Soundness and completeness of predicate logic.
+
+
+Soundness: definition?
+
+    propositional logic?
+
+    predicate logic?
+
+
+
+
+Completeness: definition?
+
+    propositional logic?
+
+    predicate logic?
+
+
+
+///////////////////////////////////
+
+Same argument might be VALID in one domain and INVALID in another
+
+- deduction can only prove arguments that are valid in ANY domain
+- we can't prove all valid arguments
+
+
+Domain with integers with operations like +
+
+
+All integers? 2 + 3 = ?
+
+
+Subset (0,1,2,3,4) of integers. 2 + 3 = ?
+
+
+
+////////////////////////////////////
+
+
+Godel's Incompleteness Theorem.
+
+Any consistent formal system where integer arithmetic is
+carried out is incomplete -- there will be true statements
+that cannot be proved.
+
+(depends on interpretations)
+
+/////////////////////
+
+Next time:
+- mathematical induction
+--> what have you done before?

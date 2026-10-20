@@ -8,9 +8,11 @@ No new homework this week
 
 Top-level operators with quantifiers
 
-- officially, quantifiers should have the HIGHEST precedence, before any operators
+- officially, quantifiers should have the HIGHEST precedence
+    (before any operators)
 
---> but Logika interprets them to have the LOWEST precedence (making them the top-level operator)
+--> but Logika interprets them to have the LOWEST precedence 
+    (making them the top-level operator)
 
 
 I will use parentheses to be clear what precedence to use with quantifiers
@@ -32,13 +34,28 @@ Today:
 Reminder:
 
 AllE - when can we use?
+    need a for all statement 
+    individual of that type 
+        might be a parameter to proof function (or named in a premise)
+        might be individual named inside a let subproof
 
 
 AllI - when do we use? idea?
+    when our goal is a for all statement 
+    subproof (a "let" subproof where we name a random individual, like a)
+        goal: get our statement about that individual
+    afterward, make same claim with a for-all statement (must be true
+        for everyone in domain)
+
 
 ////////////////////////
 
 Bigger example: allBig.sc
+
+ExistsI: use when we have a statement about a particular individual
+    create a similar Exists statement since it was true for someone
+
+    no subproofs
 
 ////////////////////////
 
@@ -49,12 +66,39 @@ Putting things together: bothQuant.sc
 
 in-class quiz
 
+
+    (  
+        ¬(∃ ((x: T) => ( ¬P(x) ⋀ Q(x) ) )) 
+    ) 
+⊢ 
+    (   
+        ∀ ((x: T) =>  ( ¬P(x) → ¬Q(x) ))
+    )
+Proof(
+    1 ( ¬(∃ ((x: T) => ( ¬P(x) ⋀  Q(x) )) )) by Premise,
+    2 Let ((a: T) => SubProof(
+        3 SubProof(
+            4 Assume ( ??? ¬P(a) ),
+            5 SubProof(
+               6 Assume ( ??? Q(a) ),
+               7 ( ??? ¬P(a) ⋀  Q(a) ) by AndI(4, 6),
+               8 ( ??? ∃ ((x: T) => ( ¬P(x) ⋀  Q(x) )) ) by ExistsI[T](7),
+               9 ( F ) by NegE(?? 8, 1)
+           ),
+           10 ( ???  ¬Q(a) ) by NegI(5)
+        ),
+        11 (¬P(a) → ¬Q(a)) by ??? ImplyI(3)
+    )), 
+    12 ( ∀((x: T) => (¬P(x) → ¬Q(x))) ) by ??? AllI[T](2)   
+)
+
 ///////////////////////
 
 Exam 2:
 - Thursday, October 15 9:30-10:45
 - Closed notes, closed computers
 similar format as exam 1 
+    open-ended similar to HW 4-6
 
 - Natural deduction proofs in propositional logic, esp. with:
     ImplyI, NegE, NegI, BottomE, PbC

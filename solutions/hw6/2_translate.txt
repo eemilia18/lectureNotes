@@ -1,0 +1,39 @@
+Here are some symbols, if needed
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ ℝ ℚ     ≠ ≤ ≥
+
+
+Domain: students
+
+C(x): student x knows C
+J(x): student x knows Java
+P(x): student x has seen a punchcard
+
+
+In the following problems, use the predicates above to
+express each statement in predicate logic. "Jane" is an
+individual in our domain (so for example, P(Jane) means that
+Jane has seen a punchcard).
+
+
+1) There is a student who knows C but not Java.
+
+∃ x (C(x) ⋀ ¬J(x))
+
+///
+
+2) All students know C or Java.
+
+∀ x (C(x) ⋁ J(x))
+
+///
+
+3) All students who have seen a punchcard know C.
+
+∀ x (P(x) → C(x))
+
+///
+
+4) Jane knows Java but not C.
+
+J(Mary) ⋀ ¬C(Mary)
+

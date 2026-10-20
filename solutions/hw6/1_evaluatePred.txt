@@ -1,0 +1,58 @@
+Evaluate each of the following predicate logic statements on the specified domain.
+Write "true" if the statement is true in the specified domain, and write "false" otherwise.
+Explain your answer.
+
+
+
+1) Domain: ℤ
+    Statement: ∀ m ∃ n (m < 2n)
+
+
+True.
+
+This is saying that all integers are less than some
+even number. Whatever each m is, we can easily find an
+even number bigger than it.
+
+
+///////////////////////////////////////////////////////
+
+2) Domain: ℤ
+    Statement: ∃ n ∃ m (n^2 + m^2 = 10)
+
+True.
+
+When n = 1 and m = 3, this statement is satisfied.
+
+
+///////////////////////////////////////////////////////
+
+3) Domain: ℤ
+    Statement: ∃ n ∃ m (n^2 + m^2 = 7)
+
+False.
+
+The sum of two (integer) squares will never be 7. The possible integer squares that are less than or equal to 7
+are 0, 1, and 4. No sum of any two of those squares equals 6.
+
+
+///////////////////////////////////////////////////////
+
+4) Domain: ℝ (the set of real numbers)
+    Statement: ∀ x ∃ y (x^2 = y)
+
+
+True.
+
+For all real numbers x, x^2 is also a real number.
+
+
+///////////////////////////////////////////////////////
+
+5) Domain: ℝ (the set of real numbers)
+    Statement: ∀ x ∃ y (x = y^2)
+
+
+False.
+
+When x = -4, there is no real number y where y^2 = -4.
