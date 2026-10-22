@@ -41,15 +41,15 @@ Idea: we know a statement is true for *some* individual
 Create an alias for that anonymous individual
 
     Know: ∃ x P(x)
-    Assume? 
+    Assume? P(alias)
 
-    Goal ?
+    Goal ? reach a conclusion that doesn't rely on the name of the alias
 
 
 
 Example:
     Know: ∃ x (P(x) ^ Q(x) → R(x))
-    Assume? 
+    Assume? P(alias) ^ Q(alias) → R(alias)
 
 
 
@@ -88,9 +88,9 @@ Syntax:
 5 ( Q )                         by ExistsE[T](1, 2)
 
 
-
+domain: k1, k2, ..., kn
 --> Think of ExistsE like OrE
-    ∃ x P(x) means...? 
+    ∃ x P(x) means...? P(k1) V P(k2) V ... V P(kn)
 
 
 Use ExistsE in the SAME situations you would use OrE
@@ -105,46 +105,53 @@ Examples:
 
 
 
-///
-
-(exists2.sc)
-( ∃ x P(x) ) V ( ∃ x Q(x) ) ⊢ (∃ x (P(x) V Q(x)))
-
-
-
 ////////////////////////////
 
 (in-class quiz)
 
 ////////////////////////////
 
+(exists2.sc)
+( ∃ x P(x) ) V ( ∃ x Q(x) ) ⊢ (∃ x (P(x) V Q(x)))
+
+(skipped, try on your own)
+
+//////////////////////////////
+
 Proof tactics for predicate logic
 
 - see if you can do anything right away with the premises
     Which rules? 
 
-        Have an AND? 
-        have an implies at the LHS? 
-        Have a for all and an individual? 
+        Have an AND? split it, AndE
+        have an implies and the LHS? ImplyE
+        Have a for all and an individual? AllE, plug them in 
 
 
 - look at top-level operator for what you are trying to prove
     trying to prove a "for all" statement with ∀?
 
+    use AllI subproof
 
 
     trying to prove a "there exists" statement with ∃?
 
         do I have that statement about a particular individual?
-
+            ExistsI
 
         could I use AllE for an individual with an all statement?
+            use AllE to make the statement about the individual
+            then use ExistsI
 
 
         do I have a "there exists" statement as a claim?
+            already have Exists (given)
+            try to prove Exists (something)
 
+            try using ExistsE on the Exists you already have 
 
         do I have an OR statement as a claim?
+            try OrE, prove the Exists in both cases
 
 
         really can't find anything? 
@@ -175,6 +182,10 @@ Proving DeMorgan's laws
 
 //demorgan2.sc
 ∃ x ¬P(x)       equivalent to       ¬(∀ x P(x))
+
+////////////////////////////////////////
+
+<-- stopped here, will continue Thursday
 
 ////////////////////////////////////////
 
