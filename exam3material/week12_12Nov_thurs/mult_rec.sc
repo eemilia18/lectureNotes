@@ -11,6 +11,7 @@ def mult(x: Z, y: Z): Z = {
   //what goes here?
   //what should we require?
   //what should we ensure?
+  
 
   var answer: Z = 0
 
