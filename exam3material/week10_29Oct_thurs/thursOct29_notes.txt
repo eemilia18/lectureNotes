@@ -1,0 +1,387 @@
+HW 8 due Tuesday, November 3
+
+//////////////////////////
+
+Today:
+- direct proofs
+- contrapositive proofs
+- proof by contradiction
+- proofs on sets
+
+//////////////////////////
+
+Definitions.
+
+An integer n is *even* if n = 2k for some k ∈ ℤ.
+
+An integer n is *odd* if n = 2k + 1 for some k ∈ ℤ.
+
+Any integer that is not odd is even,
+and any integer that is not even is odd.
+
+
+///////////////////////////////
+
+Direct (conditional) proof
+
+
+- Often want to prove things of the form: "If P, then Q"
+
+--> how would we do this with natural deduction?
+
+Assume P
+...
+get to Q
+
+
+
+/////////////////////////////
+
+Example: prove that the product of two even integers is even.
+
+
+If our domain is integers and we have the predicate Even(x), how
+would you write this statement in predicate logic?
+
+∀ x ∀ y (Even(x) ^ Even(y) -> Even(xy))
+
+
+
+What's the idea of proving this in predicate logic?
+
+Let x and y be integers. Assume x and y are even. We must show that
+xy is even. Since x is even, we have that x = 2k for some integer k.
+Since y is even, we have that y = 2m for some integer m.
+
+We have that:
+    xy = (2k)(2m)
+        = 2(2km)
+
+Thus xy = 2b where b is the integer 2km. We have that xy is even.
+
+
+Direct proof:
+
+
+
+
+
+
+
+////////////////////////////////
+
+Example.
+
+The square of any odd integer is odd.
+
+    ∀ x (Odd(x) -> Odd(x^2))
+
+Direct proof:
+
+Let x be an odd integer. We must show that x^2 is also odd.
+If x is an odd integer, then x = 2k + 1 for some integer k.
+
+We have:
+    x^2 = (2k + 1)^2
+        = (2k+1)(2k+1)
+        = 4k^2 + 4k + 1
+        = 2(2k^2 + 2k) + 1
+
+Thus x^2 = 2b + 1 where b is the integer 2k^2 + 2k, and so x^2 is
+odd by definition. 
+
+
+////////////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////////////
+
+
+Proof by contrapositive
+
+--> Also for proving things of the form "If P, then Q"
+
+
+What is the contrapositive of P → Q?
+    ¬Q → ¬P
+
+
+
+
+
+Proof by contrapositive template:
+
+Assume ¬Q
+....
+try to get to ¬P
+
+
+
+
+
+//////////////////////////////////////////
+
+Example (contrapositive)
+
+If x^2 is odd for an integer x, then x is odd.
+
+Think of as P → Q
+    P: ? x^2 is odd for an integer x
+    Q: ? x is odd
+
+Contrapositive? 
+    If x is even for some integer x, then its square is also even.
+
+
+
+
+Try direct proof first.
+    If x^2 is odd for an integer x, then x is odd.
+
+Let x be an integer, and assume that x^2 is odd. We must show
+that x is odd. 
+
+Since x^2 is odd, then x^2 = 2k+1 for some integer k.
+    x^2 = 2k+1
+    ...would need to take a sqrt, but don't know that sqrt(2k+1) is an integer
+...want x = 2(some integer) + 1
+
+Stuck!
+
+
+Now try contrapositive proof.
+If x is even for some integer x, then its square is also even.
+
+Proof (by contrapositive)
+
+Let x be an even integer. We must show that x^2 is also even.
+If x is even, then x = 2k for some integer k. 
+
+We have that:
+    x^2 = (2k)^2
+        = 4k^2
+        = 2(2k^2)
+
+Thus x^2 = 2b where b is the integer 2k^2. x^2 is even by definition.
+
+
+--> best to indicate in proof that you are using contrapositive
+
+////////////////////////////////
+
+Mistakes in proofs.
+
+We want to "prove" that 1 = 2.
+
+
+"Proof:"
+Let a and b be two equal positive integers. We have that:
+
+    1) a = b                    (reason?)  we assumed they are equal
+
+    2) a^2 = ab                 (reason?) multiplied both sides by a
+
+    3) a^2 - b^2 = ab - b^2     (reason?) subtracted b^2 from both sides
+
+    4) (a-b)(a+b) = b(a-b)      (reason?)  factored both sides
+
+    5) a+b = b                  (reason?) divided both sides by a-b
+
+    6) 2b = b                   (reason?) a and b are the same, so plugged in b for a             
+
+    7) 2 = 1                    (reason?) divided both sides by b
+
+
+
+//////////////////////////////////////
+
+Proof by contradiction.
+
+- same idea as PbC in natural deduction
+
+- assume that what you are trying to prove is not true
+
+- try to get a contradiction
+
+- conclude what you are trying to prove is true after all
+
+
+
+
+/////////////////////////
+
+Proof by contradiction template 1 (trying to prove P)
+
+
+Suppose, for the sake of contradiction, ¬P.
+...
+C ^ ¬C.
+
+We have a contradiction between C and ¬C, so P must hold.
+
+
+
+
+
+//////////////////////////
+
+Proof by contradiction template 2 (trying to prove If P, then Q):
+
+
+Assume P.
+Suppose, for the sake of contradiction, ¬Q.
+...
+C ^ ¬C.
+We have a contradiction between C and ¬C, so Q must hold.
+
+
+
+
+
+///////////////////////////
+
+Example (use proof by contradiction):
+
+If x^2 is even for an integer x, then x is even.
+
+(which template? 2)  
+
+Assume x^2 is even for some integer x. Suppose, for the sake of
+contradiction, that x is odd.
+
+Since x is odd, we have that x = 2m + 1 for some integer m.
+
+Squaring both sides of x = 2m + 1, we have:
+    x^2 = (2m+1)^2
+        = (2m+1)(2m+1)
+        = 4m^2 + 4m + 1
+        = 2(2m^2 + 2m) + 1
+
+Thus x^2 = 2b + 1 where b is the integer 2m^2 + 2m, and so x^2 is odd.
+This is a contradiction with our previous assumption that x^2 was even.
+
+Thus x is even.
+
+...goal: contradiction
+
+
+
+
+
+
+//////////////////////////
+
+(in-class quiz)
+
+//////////////////////////
+
+Definitions: "rational" / "irrational"
+
+A number r is *rational* if r = p/q for some integers p and q,
+where q ≠ 0.
+
+
+
+Any number that is not rational is irrational,
+and any number that is not irrational is rational.
+
+//////////////////////////
+
+Example: use proof by contradiction to prove that sqrt(2)
+is irrational.
+
+(which template?  1 [just a statement])
+
+
+Suppose, for the sake of contradiction, that sqrt(2) is rational.
+Since sqrt(2) is rational, we can write sqrt(2) = p/q where 
+p and q are integers and q is not 0. We choose choose p and q 
+to have no common factors, such that p/q is fully reduced. 
+
+Squaring both sides of sqrt(2) = p/q, we have that:
+    2 = p^2/q^2
+
+Multiplying both sides by q^2, we have that:
+    2q^2 = p^2
+
+Thus p^2 = 2b where b is the integer q^2, and so p^2 is even
+by definition. Thus p is also even by our previous proof.
+
+Since p is even, p = 2k for some integer k. Plugging in p = 2k 
+to our previous equation on line 306, we get:
+    2q^2 = p^2 
+        = (2k)^2
+        = 4k^2
+
+We have 2q^2 = 4k^2. Dividing both sides by 2 yields:
+    q^2 = 2k^2
+
+Thus q^2 = 2a where a is the integer k^2, and so q^2 is even by 
+defintion. We have that q is also even by our previous proof.
+
+Since p and q are both even, they share 2 as a common factor. This
+contradicts with our previous assumption that they share no
+common factors. 
+
+Thus sqrt(2) is irrational.
+
+...goal: contradiction
+
+
+/////////////////////////////////
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+/////////////////////////////////
+
+<--- stopped here, will continue Tuesday
+
+/////////////////////////////////
+
+Proofs with sets.
+
+Prove that A ⊆ B?
+    --> how would we express this in predicate logic?
+
+
+
+    --> proof template? 
+
+
+
+
+
+
+Prove that A = B?
+
+
+///////////////////////////////
+
+Example.
+
+Prove that {x : x = 4k + 2, k ∈ ℤ} ⊆ {x : x = 2a, a ∈ ℤ}
+
+A = {x : x = 4k + 2, k ∈ ℤ} 
+B = {x : x = 2a, a ∈ ℤ} 
+
+A: what elements?  
+
+
+B: what elements? 
+
+
+Proof that A ⊆ B.
+
+
+
+
+
+///////////////////////////////
+
+What if we wanted to prove something like:
+
+A ⋂ B = C?
+
+///////////////////////////////
+
+Next time: begin programming logic
+    (last major unit)

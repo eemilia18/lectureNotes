@@ -1,0 +1,29 @@
+
+Use mathematical induction to prove that if n is natural number, then:
+
+    1*1! + 2*2! + ... + n*n! = (n+1)! - 1
+
+
+
+Base case: We must prove our claim for the smallest positive integer, n = 1.
+    The left side of our claim is 1*1! = 1.
+    The right side of our claim is (1+1)! - 1 = 2 - 1 = 1.
+The two sides are equal, so the base case holds.
+
+
+Inductive step: We assume the inductive hypothesis -- that 1*1! + 2*2! + ... + k*k! = (k+1)! - 1
+for some natural number k. We must show that our claim holds for k+1, so we need to prove that:
+    1*1! + 2*2! + ... + k*k! + (k+1)(k+1)! = ((k+1)+1)! - 1
+
+We have that:
+
+    1*1! + 2*2! + ... + k*k! + (k+1)(k+1)! = (k+1)! - 1 + (k+1)(k+1)! (by inductive hypothesis)
+                                           = (k+1)!(1 + (k+1)) - 1
+                                           = (k+2)(k+1)! - 1
+                                           = (k+2)! - 1
+                                            = ((k+1) + 1)! - 1
+
+Thus our claim holds for k+1, and so the inductive step holds.
+
+
+We have shown that for all positive integers n, 1*1! + 2*2! + ... + n*n! = (n+1)! - 1.

@@ -1,0 +1,28 @@
+
+Use mathematical induction to prove that the sum of the first n even natural numbers equals n(n+1).
+That is, that:
+
+    2 + 4 + ... + 2n = n(n+1)
+
+(Note that we are considering "2" to be the first even natural number.)
+
+
+
+Base case: we must prove our claim holds for the smallest positive integer, n = 1.
+    The left side of our claim is 2(1) = 2, and the right side of our claim is
+    1(1+1) = 2. The two sides are equal, so the base case holds.
+
+
+Inductive step: We assume the inductive hypothesis -- that 2 + 4 + ... + 2k = k(k+1) 
+for some positive integer, k. We must prove that our claim holds for k+1, so we must show that:
+    2 + 4 + ... + 2k + 2(k+1) = (k+1)((k+1)+1)
+
+We have that:
+    2 + 4 + ... + 2k + 2(k+1) = k(k+1) + 2(k+1)   (by inductive hypothesis)
+                = (k+1)(k+2)
+                = (k+1)((k+1)+1)
+
+Thus our claim holds for k+1. The inductive step holds.
+
+
+We have shown that 2 + 4 + ... + 2n = n(n+1) for all positive integers n.

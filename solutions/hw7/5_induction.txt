@@ -1,0 +1,35 @@
+
+Use mathematical induction to prove that if n is a positive integer, then
+n^5 - n is divisible by 5.
+
+
+
+Base case: we must prove that our smallest positive integer, n = 1, is divisible by 5.
+    We have that 1^5 - 1 = 0. 0 is divisible by 5, so the base case holds.
+
+
+Inductive step: We assume the inductive hypothesis -- that k^5 - k is divisible by 5 
+for some positive integer k. We must prove that (k+1)^5 - (k+1) is also divisible by 5.
+
+We have that:
+
+    (k+1)^5 - (k+1) = (k^2 + 2k + 1)(k^2 + 2k + 1)(k + 1) - (k + 1)
+                    = (k^4 + 4k^3 + 6k^2 + 4k + 1)(k + 1) - (k + 1)
+                    = k^5 + 4k^4 + 6k^3 + 4k^2 + k + k^4 + 4k^3 + 6k^2 + 4k + 1 - k - 1
+                    = k^5 + 5k^4 + 10k^3 + 10k^2 + 5k + 1 - k - 1
+                    = (k^5 - k) + 5(k^4 + 2k^3 + 2k^2 + k)
+
+We have that k^5 - k is divisible by 5 from our inductive hypotheses. We also have that
+5(k^4 + 2k^3 + 2k^2 + k) is divisible by 5, as it is a multiple of 5. Thus
+
+    (k^5 - k) + 5(k^4 + 2k^3 + 2k^2 + k)
+
+is the sum of two multiples of 5, which yields another multiple of 5. So we have that
+(k+1)^5 - (k+1) is divisible by 5, and thus the inductive step holds.
+
+
+We have shown that n^5 - n is divisible by 5 for all positive integers n.
+
+
+(NOTE: this solution uses a more informal definition of divisibility. To formally show
+a number n was divisible by 5, we would need to show that n = 5a for some integer a.)

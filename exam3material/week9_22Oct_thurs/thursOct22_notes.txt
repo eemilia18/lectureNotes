@@ -10,23 +10,35 @@ Today:
 
 Soundness and completeness of predicate logic.
 
-
-Soundness: definition?
-
-    propositional logic?
-
-    predicate logic?
+comparing arguments that were valid/true
+against what we could prove with deduction 
 
 
+Soundness: definition? everything we could prove with deduction 
+    was actually true/valid 
+
+    propositional logic? yes
+
+    predicate logic? yes
 
 
-Completeness: definition?
-
-    propositional logic?
-
-    predicate logic?
 
 
+Completeness: definition? we can use deduction to prove all true/valid 
+    arguments 
+
+    propositional logic? yes
+
+    predicate logic? no 
+
+
+
+Prove the argument:
+    Premise: All x P(x)
+    Conclusion: Exists x P(x)
+
+Usually true in almost all domains
+...except an empty domain
 
 ///////////////////////////////////
 
@@ -39,10 +51,10 @@ Same argument might be VALID in one domain and INVALID in another
 Domain with integers with operations like +
 
 
-All integers? 2 + 3 = ?
+All integers? 2 + 3 = ? 5
 
 
-Subset (0,1,2,3,4) of integers. 2 + 3 = ?
+Subset (0,1,2,3,4) of integers. 2 + 3 = ? 0
 
 
 
@@ -97,9 +109,10 @@ The induction domino effect:
 
 
 What is this saying?
-    P(1)? 
+    P(1)? the claim is true for n = 1
 
-    ∀ k (P(k) → P(k+1))? 
+    ∀ k (P(k) → P(k+1))? for all k, if it's true for P(k)
+        then it's true for P(k+1)
 
 
 
@@ -110,12 +123,20 @@ Putting it all together:
 English translation?
 
 
-How will we prove P(1)?
+How will we prove P(1)? choose first element in domain, show
+    that claim holds for it
+    (called the BASE CASE)
 
 
+(called INDUCTIVE STEP)
 How will we prove ∀ k (P(k) → P(k+1))? 
     (How would we prove this for-all statements in predicate logic?)
 
+AllI
+Pick a random individual, k, in my domain 
+    ImplyI
+    Assume P(k) <-- this is called the INDUCTIVE HYPOTHESIS
+    ...try to get P(k+1)
 
 
 ////////////////////////////////////
@@ -131,15 +152,38 @@ We want to prove that for any positive integer n:
     1 + 2 + ... + n = n*(n+1)/2
 
 
+The above claim is P(n)
 
 
 Proof by induction.
 
+Base case. We must prove the claim holds for the first positive integer n,
+n = 1. We have that the left side of the claim is 1, and the right side
+of the claim is: 1(1+1)/2 = 1. The two sides are equal, so the base case holds.
+
+Inductive step. We assume the inductive hypothesis - that 
+    1 + 2 + ... + k = k(k+1)/2
+for some fixed positive integer k. We must show that our claim holds
+for k+1. That is, we must show that:
+    1 + 2 + ... + k + (k+1) = (k+1)((k+1)+1)/2
+
+We have that:
+    1 + 2 + ... + k + (k+1) = k(k+1)/2 + (k+1) (by inductive hypothesis)
+                            = (k(k+1) + 2(k+1))/2
+                            = (k+1)(k+2)/2
+                            = (k+1)((k+1)+1)/2
+
+Thus the claim holds for k+1.
+
+We have proved the base case and the inductive step, so our
+claim holds by induction for all positive integers n.
 
 
 /////////////////////////////////
 
 (in-class quiz)
+
+1^2 + 2^2 + ... + k^2 = k(k+1)(2k+1)/6
 
 /////////////////////////////////
 
@@ -149,17 +193,42 @@ Do you think induction can be used to prove properties for
 
 /////////////////////////////////
 
-Induction template.
-
-1) 
+Example: Prove that 3^n - 1 is even for all positive integers n.
 
 
-2) 
+what does "even" mean? divisible by 2
+    {x : x = 2k, k in Z, k >= 1}
 
 
-3) 
 
-/////////////////////////////////
+Proof by induction.
+
+Base case. We must prove that our claim holds for the smallest positive
+integer, n = 1. We have that 3^1 - 1 = 2. Since 2 = 2*1 where 1 is an
+integer, we have that 2 is even. The base case holds.
+
+Inductive step. We assume the inductive hypothesis -- that 3^k - 1
+is even for some fixed positive integer k. We must prove that
+3^(k+1) - 1 is also even.
+
+Since 3^k-1 is even, we have 3^k - 1 = 2a where a is an integer.
+We have that:
+    3^(k+1) - 1 = 3*3^k - 1
+                = 3*(3^k - 1) - 1 + 3
+                = 3*(3^k - 1) + 2
+                = 3*2a + 2
+                = 6a + 2
+                = 2(3a + 1)
+
+And so 3^(k+1) - 1 = 2(3a+1), where 3a + 1 is an integer. Thus
+3^(k+1) - 1 is even.
+
+//////////////////////////////////
+
+<--- stopped here, will continue Tuesday
+
+
+//////////////////////////////////
 
 Example: Prove that the sum of the first n odd numbers is n^2.
 
@@ -179,22 +248,10 @@ Proof by induction.
 
 /////////////////////////////////
 
-Example: Prove that 3^n - 1 is even for all positive integers n.
-
-
-what does "even" mean? 
-
-
-
-Proof by induction.
-
-
-
-//////////////////////////////////
-
 Bad induction, example 1.
 
-Use induction to prove that in any nonempty set of n horses, all horses are the same color.
+Use induction to prove that in any nonempty set of n horses, 
+all horses are the same color.
 
 
 //////////////////////////////////
